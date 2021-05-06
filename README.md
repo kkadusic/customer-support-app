@@ -22,7 +22,7 @@ $ mvn spring-boot:run
 
 - ##### Frontend application
 ```bash
-# Go into the fronted directory
+# Go into the frontend directory
 $ cd frontend
 
 # Install dependencies
