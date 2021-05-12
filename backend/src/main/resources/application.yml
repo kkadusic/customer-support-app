@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: techbip
+  datasource:
+    url: ${JDBC_DATABASE_URL}
+    username: ${JDBC_DATABASE_USERNAME}
+    password: ${JDBC_DATABASE_PASSWORD}
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+      jdbc:
+        time_zone: UTC
+    hibernate:
+      ddl-auto: ${SCHEMA_DB}
+server:
+  error:
+    include-message: always
+    include-stacktrace: never
