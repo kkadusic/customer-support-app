@@ -55,6 +55,16 @@ public class Person {
     public Person() {
     }
 
+    public Person(@NotBlank @Size(min = 2, max = 50) String firstName,
+                  @NotBlank @Size(min = 2, max = 50) String lastName,
+                  @NotBlank @Email @Size(max = 320) String email,
+                  @NotBlank @Size(max = 128) String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+    }
+
     public Long getId() {
         return id;
     }

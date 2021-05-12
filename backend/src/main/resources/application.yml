@@ -13,6 +13,9 @@ spring:
         time_zone: UTC
     hibernate:
       ddl-auto: ${SCHEMA_DB}
+app:
+  jwtSecret: ${JWT_SECRET}
+  jwtExpiration: ${JWT_EXPIRATION}
 server:
   error:
     include-message: always
