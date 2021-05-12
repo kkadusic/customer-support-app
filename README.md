@@ -13,6 +13,14 @@ $ cd ppis-projekat
 
 - ##### Backend application
 ```bash
+# Add following environment variables:
+JDBC_DATABASE_URL=
+JDBC_DATABASE_USERNAME=
+JDBC_DATABASE_PASSWORD=
+SCHEMA_DB=
+```
+
+```bash
 # Go into the backend directory
 $ cd backend
 
