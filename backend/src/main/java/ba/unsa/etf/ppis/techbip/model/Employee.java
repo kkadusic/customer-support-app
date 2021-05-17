@@ -1,147 +1,89 @@
 package ba.unsa.etf.ppis.techbip.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "employee")
 public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @CreationTimestamp
-    @Column(updatable = false)
-    private LocalDateTime dateCreated;
-
-    @UpdateTimestamp
-    private LocalDateTime dateUpdated;
-
-    @NotBlank
-    @Column(nullable = false)
-    @Size(min = 2, max = 50)
     private String firstName;
 
-    @NotBlank
-    @Column(nullable = false)
-    @Size(min = 2, max = 50)
     private String lastName;
 
-    @NotBlank
-    @Column(nullable = false, unique = true)
-    @Size(max = 320)
-    @Email
+    private String username;
+
     private String email;
 
-    @NotBlank
-    @Column(nullable = false)
-    @Size(max = 128)
+    @JsonIgnore
     private String password;
 
-    private String city;
+    private String phoneNumber;
 
     private String country;
 
-    private Integer rating;
+    private String city;
 
-    private Integer experience;
-
-    @ManyToOne
-    @JoinColumn(name = "department_id", nullable = false)
-    private Department department;
-
-    public Employee() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
+    public Employee(String firstName, String lastName, String username, String email, String phoneNumber, String country, String city, String password) {
         this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
+        this.username = username;
         this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
+        this.phoneNumber = phoneNumber;
+        this.country = country;
+        this.city = city;
         this.password = password;
     }
 
-    public String getCity() {
-        return city;
-    }
+    @JsonIgnore
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private List<Solution> solutions = new ArrayList<>();
 
-    public void setCity(String city) {
-        this.city = city;
-    }
 
-    public String getCountry() {
-        return country;
-    }
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private List<Certificate> certificates = new ArrayList<>();
 
-    public void setCountry(String country) {
-        this.country = country;
-    }
 
-    public Integer getRating() {
-        return rating;
-    }
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private List<Education> educations = new ArrayList<>();
 
-    public void setRating(Integer rating) {
-        this.rating = rating;
-    }
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "employee_incident",
+            joinColumns = @JoinColumn(name = "employee_id"),
+            inverseJoinColumns = @JoinColumn(name = "incident_id"))
+    private Set<Incident> incidents = new HashSet<>();
 
-    public Integer getExperience() {
-        return experience;
-    }
-
-    public void setExperience(Integer experience) {
-        this.experience = experience;
-    }
-
-    public Department getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(Department department) {
-        this.department = department;
-    }
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "employee_role",
+            joinColumns = @JoinColumn(name = "employee_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
 }
