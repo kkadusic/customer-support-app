@@ -1,0 +1,32 @@
+@import '~antd/dist/antd.css';
+
+.login-div{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10%;
+    margin-top: 15%;
+
+
+}
+
+.login-form{
+    margin-right: 10%;
+}
+
+.outer-box {
+    text-align: left;
+    background-color: #3a4d46;
+    color: whitesmoke;
+    border-radius: 10px;
+    width: 400pt;
+    height: 370pt;
+    max-width: 400pt;
+    max-width: 400pt;
+    padding: 7pt;
+   
+}
+
+.ant-input {
+    line-height: 1.9; 
+}

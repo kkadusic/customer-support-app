@@ -21,6 +21,8 @@ import UnosEdukacije from './components/UnosEdukacije';
 import ListaEdukacijaPregled from './components/ListaEdukacijaPregled';
 import AgentPregled from './components/AgentPregled';
 import AgentUredjivanje from './components/AgentUredjivanje';
+import Login from './components/Login';
+import Register from './components/Register';
 
 function App() {
   return (
@@ -49,6 +51,8 @@ function App() {
           <Route path="/unosedukacije" component={UnosEdukacije} />
           <Route path="/pregledagenta" component={AgentPregled} />
           <Route path="/urediagenta" component={AgentUredjivanje} />
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
           </Switch>
         </header>
       </div>
