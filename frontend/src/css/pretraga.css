@@ -1,0 +1,39 @@
+select{
+    background-color: transparent;
+    color: whitesmoke;
+    font-size: 14px;
+    padding: 5px;
+    width: 150px;
+    float: left;
+}
+select option{
+    color: grey;
+}
+
+.search input{
+    background-color: transparent;
+    color: whitesmoke;
+    font-size: 14px;
+    padding: 5px;
+    width: 250px;
+    float: left;
+    border-bottom: 3px solid whitesmoke;
+}
+
+.search {
+    float: right;
+}
+
+.search .ikona{
+    height: 30px;
+    width: 30px;
+    margin-left: 3px;
+}
+
+.pocisti{
+    clear: both;
+}
+
+.pretraga{
+    margin-bottom: 20px;
+}

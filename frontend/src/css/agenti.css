@@ -1,0 +1,70 @@
+.kartica-agent{
+    width: 230px;
+    height: 320px;
+    background-color: white;
+    border: 1px solid grey;
+    padding: 10px;
+    color: grey;
+    position: relative;
+    text-align: center;
+}
+
+.kartica-agent:hover{
+    transform: scale(1.045);
+    z-index: 10;
+}
+
+.kartica-agent img {
+    height: 160px;
+    width: 160px;
+    border-radius: 20px;
+}
+
+.ime-zvanje{
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border-top: 1px solid grey;
+}
+
+.ime-prezime-agent{
+    font-size: 20px;
+    color: rgb(236, 162, 149);
+}
+
+.zvanje-agent{
+    font-size: 16px;
+}
+
+.pregled{
+    font-size: 13px;
+    width: 70px;
+    padding: 5px ;
+    background-color: rgba(12, 141, 66, 0.781);
+    color: whitesmoke;
+    border-radius: 30px;
+    border: none;
+    margin-top: 10px;
+    margin-right: 3px;
+}
+
+.uredi{
+    font-size: 13px;
+    width: 80px;
+    padding: 5px;
+    background-color: rgba(180, 149, 9, 0.829);
+    color: whitesmoke;
+    border-radius: 30px;
+    border: none;
+    margin-top: 10px;
+    margin-right: 3px;
+}
+.brisi{
+    font-size: 13px;
+    width: 70px;
+    padding: 5px;
+    background-color: rgb(224, 128, 111);
+    color: whitesmoke;
+    border-radius: 30px;
+    border: none;
+    margin-top: 10px;
+}

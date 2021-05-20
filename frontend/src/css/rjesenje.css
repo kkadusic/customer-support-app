@@ -1,0 +1,63 @@
+.unos-rjesenja{
+    font-size: 26px;
+    float: left;
+    color: rgb(236, 162, 149);
+    margin-left: 10px;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+
+.sadrzaj{
+    margin-top: 20px;
+    text-align: center;
+    margin: auto;
+    width: 50%;
+}
+
+.sadrzaj h2{
+    font-size: 16px;
+    color: white;
+    float: left;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+
+.sadrzaj textarea{
+    margin: 10px;
+    width: 100%;
+    font-size: 14px;
+    resize: none;
+    background-color: rgba(128, 128, 128, 0.199);
+    border: 2px solid rgb(236, 162, 149);
+    border-radius: 10px;
+    color: white;
+}
+
+.sadrzaj input {
+    margin: 10px;
+    width: 100%;
+    font-size: 14px;
+    background-color: rgba(128, 128, 128, 0.199);
+    border: 2px solid rgb(236, 162, 149);
+    border-radius: 10px;
+    color: white;
+    padding: 5px;
+}
+
+.spasi{
+    margin-top: 20px;
+    font-size: 14px;
+    width: 150px;
+    padding: 5px 10px 5px 10px;
+    background-color: rgb(236, 162, 149);
+    color: #3a4d46;
+    border-radius: 30px;
+    border: 1px solid grey;
+  }
+
+  .prozor-cert{
+      width: 100%;
+      background-color: #3a4d46;
+      border-radius: 25px;
+      padding-bottom: 15px;
+  }

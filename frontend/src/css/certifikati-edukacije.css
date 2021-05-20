@@ -1,0 +1,30 @@
+.grid-certifikata{
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 5px;
+    row-gap: 5px;
+}
+
+.dodaj{
+    font-size: 16px;
+  width: 30%;
+  padding: 5px;
+  background-color: white;
+  color: #3a4d46;
+  border-radius: 30px;
+  border: 1px solid grey;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.dugmad{
+    margin-top: 10%;
+}
+.dugmad .dodaj{
+    width: 80%;
+}
+
+.lista button:hover{
+    cursor: pointer;
+}
