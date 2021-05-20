@@ -9,7 +9,8 @@ const Dashboard = () => {
     return (
         <div className="dashboard-grid">
             <DashboardKartica naslov="Moj profil" opis="Pregled korisničkog računa" dugme="Pregled" />
-            <DashboardKartica naslov="Agenti" opis="Pregled informacija o uposlenima odjela" dugme="Pregled" />
+            <DashboardKartica naslov="Agenti" opis="Pregled informacija o uposlenima odjela" 
+            dugme="Pregled" handleClick={() => { history.push("/agenti") }} />
             <DashboardKartica naslov="Korisnički zahtjevi" opis="Upravljanje korisničkim zahtjevima"
                 dugme="Pregled" handleClick={() => { history.push("/zahtjevi") }} />
         </div>

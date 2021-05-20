@@ -9,7 +9,7 @@ const Agenti = () => {
     }
 
     return (<div className="prozor">
-        <Pretraga />
+        <Pretraga/>
         <div className="zahtjevi-grid">
             <AgentKartica {...agent} />
             <AgentKartica {...agent} />
