@@ -27,7 +27,7 @@ const Login = () => {
     }
     return (
         <div className="outer-box">
-            <p>Prijava</p>
+            <p className="title-text">Prijava</p>
         <div className="login-div">
             
         <Form
@@ -40,40 +40,40 @@ const Login = () => {
         onFinishFailed={onFinishFailed}
         className="login-form"
       >
+        <p className="login-label">Korisničko ime ili e-mail *</p>
 
         <Form.Item
-          label="Username"
           name="username"
           rules={[
             {
               required: true,
-              message: 'Please input your username!',
+              message: 'Unesite vaš email!',
             },
           ]}
+         
         >
-          <Input />
+          <Input  placeholder="Korisničko ime ili e-mail"/>
         </Form.Item>
-  
+
+        <p className="login-label pass">Šifra *</p>
         <Form.Item
-          label="Password"
           name="password"
           rules={[
             {
               required: true,
-              message: 'Please input your password!',
+              message: 'Unesite vašu šifru!',
             },
           ]}
+          
         >
-          <Input.Password />
+          <Input.Password placeholder="Šifra"/>
         </Form.Item>
   
-        <Form.Item {...tailLayout} name="remember" valuePropName="checked">
-          <Checkbox>Remember me</Checkbox>
-        </Form.Item>
+
   
         <Form.Item {...tailLayout}>
-          <Button type="primary" htmlType="submit">
-            Submit
+          <Button type="primary" htmlType="submit" className="submit-button" >
+            Prijavi se
           </Button>
         </Form.Item>
       </Form>

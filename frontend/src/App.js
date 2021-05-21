@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Switch  } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import './App.css';
 import Dashboard from './components/Dashboard';
 import DashboardZahtjevi from './components/DashboardZahtjevi';
@@ -23,6 +24,8 @@ import AgentPregled from './components/AgentPregled';
 import AgentUredjivanje from './components/AgentUredjivanje';
 import Login from './components/Login';
 import Register from './components/Register';
+import Pocetna from './components/Pocetna';
+import Profil from './components/Profil';
 
 function App() {
   return (
@@ -31,6 +34,7 @@ function App() {
         <header className="App-header">
           <Navbar />
           <Switch>
+
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/zahtjevi" component={DashboardZahtjevi} />
           <Route path="/mojizahtjevi" component={MojiZahtjevi} />
@@ -53,6 +57,9 @@ function App() {
           <Route path="/urediagenta" component={AgentUredjivanje} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
+          <Route path="/pocetna" component={Pocetna} />
+          <Route path="/profil" component={Profil} />
+          <Route path="/*" component={Pocetna} />
           </Switch>
         </header>
       </div>
