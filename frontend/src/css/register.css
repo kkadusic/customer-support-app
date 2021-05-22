@@ -2,12 +2,13 @@
     background-color: #3a4d46;
     color: whitesmoke;
     border-radius: 10px;
-    width: 50%;
-    min-height: 350px;
+    width: 55%;
+    height: 600pt;
     text-align: center;
     border: none;
     padding: 20px;
     margin-top: 10%;
+    margin-bottom: 3%;
 }
 
 #upper-section {
@@ -17,8 +18,8 @@
 
 #naslov-reg-forme {
     color: rgb(236, 162, 149);
-    font-size: 17pt;
-    font-weight: 400;
+    font-size: 20pt;
+    font-weight: 500;
     margin-bottom: 3%;
     line-height: 15pt;
     float: left;
@@ -42,6 +43,7 @@
     font-size: 10pt;
     margin-right: 3%;
     float: left;
+    margin-left: 13%;
 }
 
 #redir-login {
@@ -52,28 +54,77 @@
 }
 
 #div-forma-grid {
+    padding: 2%;
     display: grid;
+    max-width: 1000pt;
 }
 
 #instructions {
     margin-top: 10%;
     font-style: italic;
     justify-content: center;
-    font-size: 10pt;
+    font-size: 15pt;
 }
 
 #div-forma-grid {
    grid-template:  repeat(3, minmax(auto, 1fr)) / repeat(3, minmax(auto, 1fr));
    overflow: hidden;
+   column-gap: 2pt;
+   margin-top: 5%;
+   margin-left: 3%;
 }
 
 #div-forma-grid input {
-    margin: 5px 0px 5px 0px;
+    margin: 0;
     float: right;
-    width: 200px;
+    width: 90%;
     background-color: rgba(128, 128, 128, 0.199);
     border: 2px solid rgb(236, 162, 149);
     border-radius: 10px;
     color: white;
-    padding-left: 5px;
+}
+
+.div-cell {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10pt;
+}
+
+.div-title {
+    font-size: 16pt;
+    color: rgb(236, 162, 149);
+    text-align: left;
+}
+
+#register-button {
+    background-color: rgb(236, 162, 149);
+    color: #3a4d46;
+    border-radius: 30px;
+    width: 150pt;
+    height: 40pt;
+    margin-top: 3.5%;
+    padding-bottom: 2%;
+    margin-bottom: 2%;
+}
+
+#register-button:hover {
+    cursor: pointer;
+    background-color: rgb(245, 185, 175);
+}
+
+.val-style {
+    background-color: lightcoral !important;
+    border: red 2px solid !important;
+}
+
+.dis-class {
+    background-color: gray !important;
+    pointer-events:none;
+}
+
+#error-label {
+    justify-content: center;
+    font-size: 12pt;
+    font-weight: 400;
+    color: red;
 }

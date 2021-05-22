@@ -77,6 +77,7 @@ const Login = () => {
           </Button>
         </Form.Item>
       </Form>
+      <p id="reg-reminder">Nemate račun? <a href="/register">Registrirajte se!</a></p>
       </div>
       </div>
     )

@@ -17,6 +17,7 @@ const ListaEdukacijaUredjivanje = () => {
         datumKraja={edukacija.datumKraja} datumPocetka={edukacija.datumPocetka} uredjivanje={true}></Edukacija>
         </div>
         <button className="dodaj" onClick={()=>{history.push("/unosedukacije")}}>Dodaj edukaciju</button>
+        <p>Nemate račun? <a href="/register">Registrirajte se</a></p>
     </div>);
 }
 
