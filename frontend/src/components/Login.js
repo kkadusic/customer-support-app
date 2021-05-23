@@ -18,13 +18,11 @@ const layout = {
   };
 
 const Login = () => {
-    const onFinish = () => {
-        console.log("onFinish")
+
+    const onFinish = (value) => {
+        console.log(value)
     }
 
-    const onFinishFailed = () => {
-        console.log("onFinishFailed")
-    }
     return (
         <div className="outer-box">
             <p className="title-text">Prijava</p>
@@ -34,10 +32,9 @@ const Login = () => {
         {...layout}
         name="basic"
         initialValues={{
-          remember: true,
+          remember: false, username: '', password: ''
         }}
         onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
         className="login-form"
       >
         <p className="login-label">Korisničko ime ili e-mail *</p>

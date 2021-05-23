@@ -14,6 +14,8 @@ const Register = () => {
       phoneNumber: '',
       username: ''
     })
+    const mapper = {  city: 'Grad ', country: 'Država', email: 'Email', firstName: 'Ime',
+    lastName: 'Prezime',password: 'Šifra', phoneNumber: 'Broj telefona', username: 'Korisničko ime'}
 
     const [fieldStyle, setFieldStyle] = useState ({
       city: false,
@@ -33,7 +35,6 @@ const Register = () => {
 
     const handleChange = (e) => {
        const {name, value} = e.target
-
        setFieldStyle(fieldStyle => ({...fieldStyle, [name]: false}))
        setUser(user => ({...user, [name]: value}))
 
@@ -46,33 +47,30 @@ const Register = () => {
          const [key, value] = entry
          if (value) {
             setErrorLabel("Input fields contain invalid data!")
+            terminate = true
          }
        })
+
        if (terminate) return ;
        let postData = user
        postData["roleName"] = "ROLE_EMPLOYEE"
        axios.post("http://localhost:8081/auth/registration", postData).then(
           (respDat) => {
-            
             window.location.href='/login'
           }
        ).catch(err => {
-         if(!err.response)
-         setErrorLabel("Server is not available")
-         else
-         setErrorLabel(JSON.stringify(err.response?.data?.message))
-       })
-        
+         setErrorLabel(!err.response ? "Server is not available" : JSON.stringify(err.response?.data?.message))
+       })    
     }
 
  
     const validateString = (e) => {
       const {name, value} = e.target
+      console.log(value)
       if (!checkString({name: name, value: value}))  setFieldStyle(fieldStyle => ({...fieldStyle, [name]: true}))
     }
 
-    const checkString = ( {name, value}) => {
-       console.log(name)
+    const checkString = ({name, value}) => {
       if (!value)  return false
 
       switch (name) {
@@ -90,7 +88,6 @@ const Register = () => {
 
     const handleClick = (e) => {
       const {name, value} = e.target
-      
       setFieldStyle(fieldStyle => ({...fieldStyle, [name]: false}))
    }
 

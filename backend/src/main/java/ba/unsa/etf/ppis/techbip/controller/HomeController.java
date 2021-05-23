@@ -29,10 +29,6 @@ public class HomeController {
 
     @GetMapping("/home")
     public ResponseEntity<String> home() {
-        Role admin = new Role(0L, RoleName.ROLE_ADMIN);
-        Role employee = new Role(1L, RoleName.ROLE_EMPLOYEE);
-        roleRepository.save(admin);
-        roleRepository.save(employee);
         return ResponseEntity.ok("Database is initialized.");
     }
 
