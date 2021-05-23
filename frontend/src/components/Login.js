@@ -1,6 +1,9 @@
 import React from 'react'
 import { Form, Input, Button, Checkbox } from 'antd'
 import '../css/login.css'
+import axios from 'axios'
+import { setSession, prepareUserObject } from "../utilities/localStorage"
+import { decode } from "jsonwebtoken";
 
 const layout = {
     labelCol: {
@@ -20,7 +23,15 @@ const layout = {
 const Login = () => {
 
     const onFinish = (value) => {
-        console.log(value)
+      axios.post("http://localhost:8081/auth/login", value).then(
+        (respDat) => {
+          setSession(prepareUserObject(respDat.data.token))
+
+        }
+     ).catch(err => {
+
+     }) 
+
     }
 
     return (
@@ -31,9 +42,7 @@ const Login = () => {
         <Form
         {...layout}
         name="basic"
-        initialValues={{
-          remember: false, username: '', password: ''
-        }}
+        initialValues={{ remember: false, username: '', password: ''}}
         onFinish={onFinish}
         className="login-form"
       >

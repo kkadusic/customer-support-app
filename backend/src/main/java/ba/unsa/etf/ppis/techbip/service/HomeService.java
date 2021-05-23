@@ -2,12 +2,14 @@ package ba.unsa.etf.ppis.techbip.service;
 
 import ba.unsa.etf.ppis.techbip.exception.ResourceNotFoundException;
 import ba.unsa.etf.ppis.techbip.model.Employee;
+import ba.unsa.etf.ppis.techbip.model.EmployeeWrapper;
 import ba.unsa.etf.ppis.techbip.model.Role;
 import ba.unsa.etf.ppis.techbip.model.RoleName;
 import ba.unsa.etf.ppis.techbip.repository.EmployeeRepository;
 import ba.unsa.etf.ppis.techbip.repository.RoleRepository;
 import ba.unsa.etf.ppis.techbip.request.LoginRequest;
 import ba.unsa.etf.ppis.techbip.request.RegisterRequest;
+import ba.unsa.etf.ppis.techbip.response.LoginResponse;
 import ba.unsa.etf.ppis.techbip.security.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +20,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @RequiredArgsConstructor
 @Service
@@ -66,7 +65,7 @@ public class HomeService {
         return "Registration is completed.";
     }
 
-    public String authentication(LoginRequest loginRequest) {
+    public LoginResponse authentication(LoginRequest loginRequest) {
 
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
@@ -74,9 +73,13 @@ public class HomeService {
                         loginRequest.getPassword()
                 )
         );
-
+        Employee emp = getEmployeeByUsername(loginRequest.getUsername());
+        ArrayList<String> roles = new ArrayList<>();
+        for (Role role : emp.getRoles()) roles.add(role.getRolename().name());
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        return jwtTokenProvider.generateToken(authentication);
+
+        return new LoginResponse(jwtTokenProvider.generateToken(authentication, new EmployeeWrapper( emp.getFirstName(), emp.getLastName(),
+                emp.getCountry(), emp.getCity(), emp.getEmail(), emp.getPhoneNumber(), emp.getUsername(), roles)));
     }
 
     public Employee getEmployeeByUsername(String username) {

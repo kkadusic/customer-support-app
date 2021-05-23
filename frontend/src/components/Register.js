@@ -66,7 +66,6 @@ const Register = () => {
  
     const validateString = (e) => {
       const {name, value} = e.target
-      console.log(value)
       if (!checkString({name: name, value: value}))  setFieldStyle(fieldStyle => ({...fieldStyle, [name]: true}))
     }
 

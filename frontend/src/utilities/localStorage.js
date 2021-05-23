@@ -7,6 +7,12 @@ export const getToken = () => {
     return session ? JSON.parse(session).jwt : null;
 }
 
+export const prepareUserObject = (token) => {
+    let userData = decode(token).user;
+    userData["jwt"] = token;
+    return userData;
+}
+
 // return user from local storage
 export const getUser = () => {
     const session = localStorage.getItem(sessionItem);

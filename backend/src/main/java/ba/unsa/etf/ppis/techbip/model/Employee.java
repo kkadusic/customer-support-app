@@ -34,6 +34,7 @@ public class Employee {
 
     private String lastName;
 
+    @Column(unique = true)
     private String username;
 
     private String email;
@@ -86,4 +87,6 @@ public class Employee {
             joinColumns = @JoinColumn(name = "employee_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
+
+
 }

@@ -41,8 +41,7 @@ public class HomeController {
 
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> authentication(@Valid @RequestBody LoginRequest loginRequest) {
-        String jwt = homeService.authentication(loginRequest);
-        return ResponseEntity.ok(new LoginResponse(jwt));
+        return ResponseEntity.ok(homeService.authentication(loginRequest));
     }
 
     @GetMapping("/profil")

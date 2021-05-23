@@ -1,5 +1,7 @@
 package ba.unsa.etf.ppis.techbip.security;
 
+import ba.unsa.etf.ppis.techbip.model.Employee;
+import ba.unsa.etf.ppis.techbip.model.EmployeeWrapper;
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +22,7 @@ public class JwtTokenProvider {
     @Value("${app.jwtExpiration}")
     private int jwtExpirationInMs;
 
-    public String generateToken(Authentication authentication) {
+    public String generateToken(Authentication authentication, EmployeeWrapper ew) {
         UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
 
         Date now = new Date();
@@ -28,6 +30,7 @@ public class JwtTokenProvider {
 
         return Jwts.builder()
                 .setSubject(Long.toString(userPrincipal.getId()))
+                .claim("user", ew)
                 .setIssuedAt(new Date())
                 .setExpiration(expiryDate)
                 .signWith(SignatureAlgorithm.HS512, jwtSecret)
