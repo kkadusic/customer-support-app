@@ -1,4 +1,4 @@
-.kartica{
+.kartica {
     width: 230px;
     height: 320px;
     background-color: white;
@@ -8,17 +8,17 @@
     position: relative;
 }
 
-.kartica:hover{
+.kartica:hover {
     transform: scale(1.045);
     z-index: 10;
 }
 
-.datum{
+.datum {
     font-size: 12px;
     text-align: left;
 }
 
-.naziv{
+.naziv {
     font-size: 18px;
     text-align: left;
     color: rgb(236, 162, 149);
@@ -26,12 +26,12 @@
     margin: 0px;
 }
 
-.opis{
+.opis {
     font-size: 12px;
     text-align: left;
 }
 
-.klijent{
+.klijent {
     display: grid;
     grid-template-columns: 1fr 1fr;
     border-top: 1px solid grey;
@@ -39,20 +39,20 @@
     padding-top: 10px;
 }
 
-.profilna{
+.profilna {
     border-radius: 50%;
     height: 80px;
     width: 80px;
     padding: 5px;
 }
 
-.ime{
+.ime {
     font-size: 14px;
     text-align: left;
     color: rgb(85, 84, 84);
 }
 
-.kontakt{
+.kontakt {
     font-size: 12px;
     text-align: left;
     color: grey;
@@ -60,7 +60,7 @@
     margin: 0px;
 }
 
-.zahtjev-btn{
+.zahtjev-btn {
     font-size: 13px;
     width: 100px;
     padding: 5px 10px 5px 10px;
@@ -74,14 +74,16 @@
     margin-right: 10px;
 }
 
-.zahtjev-btn:hover{
+.zahtjev-btn:hover {
     cursor: pointer;
 }
-.linija-btm{
-    border-bottom:  1px solid grey;
+
+.linija-btm {
+    border-bottom: 1px solid grey;
     height: 20px;
 }
-.pregled-btn{
+
+.pregled-btn {
     font-size: 13px;
     width: 100px;
     padding: 5px 10px 5px 10px;

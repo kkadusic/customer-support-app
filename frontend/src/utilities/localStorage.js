@@ -1,4 +1,5 @@
-import { decode } from "jsonwebtoken";
+import {decode} from "jsonwebtoken";
+
 const sessionItem = 'user';
 
 // return token from local storage
@@ -32,6 +33,6 @@ export const validateToken = () => {
     const token = getToken();
     if (token === null)
         return false;
-    const exp = decode(token, { complete: true }).payload.exp;
+    const exp = decode(token, {complete: true}).payload.exp;
     return Date.now() < exp * 1000;
 }

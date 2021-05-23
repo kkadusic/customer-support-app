@@ -1,4 +1,4 @@
-.grid-certifikata{
+.grid-certifikata {
     margin-top: 100px;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -6,25 +6,26 @@
     row-gap: 5px;
 }
 
-.dodaj{
+.dodaj {
     font-size: 16px;
-  width: 30%;
-  padding: 5px;
-  background-color: white;
-  color: #3a4d46;
-  border-radius: 30px;
-  border: 1px solid grey;
-  margin-top: 10px;
-  margin-bottom: 15px;
+    width: 30%;
+    padding: 5px;
+    background-color: white;
+    color: #3a4d46;
+    border-radius: 30px;
+    border: 1px solid grey;
+    margin-top: 10px;
+    margin-bottom: 15px;
 }
 
-.dugmad{
+.dugmad {
     margin-top: 10%;
 }
-.dugmad .dodaj{
+
+.dugmad .dodaj {
     width: 80%;
 }
 
-.lista button:hover{
+.lista button:hover {
     cursor: pointer;
 }

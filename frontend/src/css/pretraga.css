@@ -1,4 +1,4 @@
-select{
+select {
     background-color: transparent;
     color: whitesmoke;
     font-size: 14px;
@@ -6,11 +6,12 @@ select{
     width: 150px;
     float: left;
 }
-select option{
+
+select option {
     color: grey;
 }
 
-.search input{
+.search input {
     background-color: transparent;
     color: whitesmoke;
     font-size: 14px;
@@ -24,16 +25,16 @@ select option{
     float: right;
 }
 
-.search .ikona{
+.search .ikona {
     height: 30px;
     width: 30px;
     margin-left: 3px;
 }
 
-.pocisti{
+.pocisti {
     clear: both;
 }
 
-.pretraga{
+.pretraga {
     margin-bottom: 20px;
 }
