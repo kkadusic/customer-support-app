@@ -1,8 +1,9 @@
 import React from 'react';
 import '../css/navbar.css';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const Navbar = () => {
+
     const linkPocetna = <Link className="navbar-link" to="/">Početna</Link>;
     const linkDashboard = <Link className="navbar-link" to="/dashboard">Dashboard</Link>;
     const linkProfil = <Link className="navbar-link" to="/profil">Profil</Link>;
@@ -13,7 +14,7 @@ const Navbar = () => {
 
     return (
         <div className="navbar">
-            {linkPocetna}  |  {linkDashboard} | {linkProfil} |  {linkAgenti}  |  {linkZahtjevi}  | {linkRjesenja} | {linkOdjava}
+            {linkPocetna} | {linkDashboard} | {linkProfil} | {linkAgenti} | {linkZahtjevi} | {linkRjesenja} | {linkOdjava}
         </div>
     );
 }

@@ -19,18 +19,18 @@
     text-align: center;
     align-content: center;
     justify-content: center;
-    display:flex;
+    display: flex;
     flex-direction: column;
     margin: 0;
 
 }
 
 #slogan {
-  margin-top: -5%;
-  font-size: 27pt;
-  font-weight: 600;
-  color: white;
-  
+    margin-top: -5%;
+    font-size: 27pt;
+    font-weight: 600;
+    color: white;
+
 }
 
 #company-description {

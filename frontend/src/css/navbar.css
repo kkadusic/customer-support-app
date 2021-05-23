@@ -1,17 +1,17 @@
-.navbar{
+.navbar {
     color: rgba(173, 25, 82, 0.781);
     position: absolute;
     top: 30px;
     font-size: 16px;
 }
 
-.navbar-link{
+.navbar-link {
     color: rgb(51, 34, 34);
     text-decoration: none;
     padding-left: 10px;
     padding-right: 10px;
 }
 
-.navbar-link:focus{
+.navbar-link:focus {
     color: rgb(224, 24, 91);
 }

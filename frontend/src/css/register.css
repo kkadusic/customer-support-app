@@ -15,7 +15,6 @@
     display: flex;
 }
 
-
 #naslov-reg-forme {
     color: rgb(236, 162, 149);
     font-size: 20pt;
@@ -67,11 +66,11 @@
 }
 
 #div-forma-grid {
-   grid-template:  repeat(3, minmax(auto, 1fr)) / repeat(3, minmax(auto, 1fr));
-   overflow: hidden;
-   column-gap: 2pt;
-   margin-top: 5%;
-   margin-left: 3%;
+    grid-template:  repeat(3, minmax(auto, 1fr)) / repeat(3, minmax(auto, 1fr));
+    overflow: hidden;
+    column-gap: 2pt;
+    margin-top: 5%;
+    margin-left: 3%;
 }
 
 #div-forma-grid input {
@@ -119,7 +118,7 @@
 
 .dis-class {
     background-color: gray !important;
-    pointer-events:none;
+    pointer-events: none;
 }
 
 #error-label {

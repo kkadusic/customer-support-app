@@ -1,170 +1,171 @@
 .prozor {
-  position: relative;
-  margin-bottom: 5%;
+    position: relative;
+    margin-bottom: 5%;
 }
 
 .top-naslov {
-  margin-top: 5px;
-  color: white;
-  font-size: 22px;
+    margin-top: 5px;
+    color: white;
+    font-size: 22px;
 }
 
 .kantica {
-  float: right;
+    float: right;
 }
+
 .forma-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 20px;
-  row-gap: 8px;
-  color: white;
-  font-size: 14px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 8px;
+    color: white;
+    font-size: 14px;
 }
 
 .forma-grid div {
-  padding: 15px;
+    padding: 15px;
 }
 
 .forma-grid h2 {
-  margin-top: 5px;
-  color: rgb(236, 162, 149);
-  font-size: 20px;
+    margin-top: 5px;
+    color: rgb(236, 162, 149);
+    font-size: 20px;
 }
 
 .forma-grid input {
-  margin: 5px 0px 5px 0px;
-  float: right;
-  width: 200px;
-  background-color: rgba(128, 128, 128, 0.199);
-  border: 2px solid rgb(236, 162, 149);
-  border-radius: 10px;
-  color: white;
-  padding-left: 5px;
+    margin: 5px 0px 5px 0px;
+    float: right;
+    width: 200px;
+    background-color: rgba(128, 128, 128, 0.199);
+    border: 2px solid rgb(236, 162, 149);
+    border-radius: 10px;
+    color: white;
+    padding-left: 5px;
 }
 
 .forma-grid label {
-  margin: 8px 0px 5px 0px;
-  float: left;
+    margin: 8px 0px 5px 0px;
+    float: left;
 }
 
 .forma-grid select {
-  border: none;
-  background-color: transparent;
-  color: white;
-  margin: 8px 0px 5px 0px;
-  width: 190px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    margin: 8px 0px 5px 0px;
+    width: 190px;
 }
 
 #kategorija {
-  float: right;
+    float: right;
 }
 
 .forma-grid select option {
-  color: black;
+    color: black;
 }
 
 .forma-grid textarea {
-  margin: 8px 0px 5px 0px;
-  width: 200px;
-  font-size: 14px;
-  resize: none;
-  background-color: rgba(128, 128, 128, 0.199);
-  border: 2px solid rgb(236, 162, 149);
-  border-radius: 10px;
-  color: white;
+    margin: 8px 0px 5px 0px;
+    width: 200px;
+    font-size: 14px;
+    resize: none;
+    background-color: rgba(128, 128, 128, 0.199);
+    border: 2px solid rgb(236, 162, 149);
+    border-radius: 10px;
+    color: white;
 }
 
 .forma-btn {
-  font-size: 13px;
-  width: 140px;
-  padding: 5px;
-  background-color: white;
-  color: #3a4d46;
-  border-radius: 30px;
-  border: 1px solid grey;
-  float: right;
-  margin-top: 10px;
-  margin-bottom: 15px;
+    font-size: 13px;
+    width: 140px;
+    padding: 5px;
+    background-color: white;
+    color: #3a4d46;
+    border-radius: 30px;
+    border: 1px solid grey;
+    float: right;
+    margin-top: 10px;
+    margin-bottom: 15px;
 }
 
 .forma-grid input[type="radio"] {
-  vertical-align: middle;
-  width: 100px;
-  height: 15px;
-  float: left;
+    vertical-align: middle;
+    width: 100px;
+    height: 15px;
+    float: left;
 }
 
 .radio-label {
-  vertical-align: baseline;
-  text-align: center;
-  float: right;
-  width: 150px;
-  height: 15px;
-  padding-bottom: 10px;
-  text-align: left;
+    vertical-align: baseline;
+    text-align: center;
+    float: right;
+    width: 150px;
+    height: 15px;
+    padding-bottom: 10px;
+    text-align: left;
 }
 
 .spasi-btn {
-  font-size: 14px;
-  width: 150px;
-  padding: 5px 10px 5px 10px;
-  background-color: rgb(236, 162, 149);
-  color: #3a4d46;
-  border-radius: 30px;
-  border: 1px solid grey;
-  position: absolute;
-  margin-top: 50px;
-  bottom: 25px;
-  right: 30px;
+    font-size: 14px;
+    width: 150px;
+    padding: 5px 10px 5px 10px;
+    background-color: rgb(236, 162, 149);
+    color: #3a4d46;
+    border-radius: 30px;
+    border: 1px solid grey;
+    position: absolute;
+    margin-top: 50px;
+    bottom: 25px;
+    right: 30px;
 }
 
 .uredi-btn {
-  font-size: 14px;
-  width: 150px;
-  padding: 5px 10px 5px 10px;
-  background-color: rgb(236, 162, 149);
-  color: #3a4d46;
-  border-radius: 30px;
-  border: 1px solid grey;
-  position: absolute;
-  margin-top: 50px;
-  bottom: 60px;
-  right: 30px;
+    font-size: 14px;
+    width: 150px;
+    padding: 5px 10px 5px 10px;
+    background-color: rgb(236, 162, 149);
+    color: #3a4d46;
+    border-radius: 30px;
+    border: 1px solid grey;
+    position: absolute;
+    margin-top: 50px;
+    bottom: 60px;
+    right: 30px;
 }
 
 .agenti {
-  float: left;
+    float: left;
 }
 
 .forma-grid input[type="radio"][disabled]:checked {
-  -webkit-appearance: none;
-  border: 3.5px solid white;
-  border-radius: 8px;
-  height: 16px;
-  width: 16px;
-  margin-left: 42px;
-  margin-right: 42px;
-  vertical-align: middle;
-  float: left;
+    -webkit-appearance: none;
+    border: 3.5px solid white;
+    border-radius: 8px;
+    height: 16px;
+    width: 16px;
+    margin-left: 42px;
+    margin-right: 42px;
+    vertical-align: middle;
+    float: left;
 }
 
 @media only screen and (max-width: 1000px) {
-  .forma-grid {
-    grid-template-columns: auto;
-  }
+    .forma-grid {
+        grid-template-columns: auto;
+    }
 }
 
 .podprozor {
-  margin: auto 25% auto 25%;
+    margin: auto 25% auto 25%;
 }
 
 .podprozor select {
-  width: 100%;
+    width: 100%;
 }
 
 .podprozor h2 {
-  margin-top: 10%;
-  margin-bottom: 20%;
-  color: rgb(236, 162, 149);
-  font-size: 28px;
+    margin-top: 10%;
+    margin-bottom: 20%;
+    color: rgb(236, 162, 149);
+    font-size: 28px;
 }
