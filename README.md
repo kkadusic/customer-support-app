@@ -32,6 +32,11 @@ $ mvn spring-boot:run
 
 - ##### Frontend application
 ```bash
+# Add following environment variables:
+REACT_APP_API_URL=
+```
+
+```bash
 # Go into the frontend directory
 $ cd frontend
 
