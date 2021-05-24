@@ -32,7 +32,6 @@ const ListaEdukacijaUredjivanje = () => {
             <button
                 className="dodaj"
                 onClick={() => {
-                    history.push("/unosedukacije");
                     history.push({
                         pathname: '/unosedukacije',
                         state: {agent: location.state.agent}

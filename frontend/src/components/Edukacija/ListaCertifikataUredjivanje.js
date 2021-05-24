@@ -30,7 +30,10 @@ const ListaCertifikataUredjivanje = () => {
             </div>
             <button className="dodaj"
                     onClick={() => {
-                        history.push("/unoscertifikata")
+                        history.push({
+                            pathname: '/unoscertifikata',
+                            state: {agent: location.state.agent}
+                        });
                     }}
             >
                 Dodaj certifikat
