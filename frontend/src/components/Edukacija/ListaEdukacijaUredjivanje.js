@@ -7,7 +7,7 @@ import {useLocation} from "react-router-dom";
 const ListaEdukacijaUredjivanje = () => {
     const history = useHistory();
     const location = useLocation();
-    const educations = location.state.educations;
+    const educations = location.state.agent.educations;
 
     return (
         <div className="lista">
@@ -33,6 +33,10 @@ const ListaEdukacijaUredjivanje = () => {
                 className="dodaj"
                 onClick={() => {
                     history.push("/unosedukacije");
+                    history.push({
+                        pathname: '/unosedukacije',
+                        state: {agent: location.state.agent}
+                    });
                 }}
             >
                 Dodaj edukaciju

@@ -30,7 +30,7 @@ const AgentUredjivanje = () => {
                             onClick={() => {
                                 history.push({
                                     pathname: '/urediedukacije',
-                                    state: {educations: agent.educations}
+                                    state: {agent: agent}
                                 });
                             }}>
                         Ažuriranje edukacija
@@ -40,7 +40,7 @@ const AgentUredjivanje = () => {
                             onClick={() => {
                                 history.push({
                                     pathname: '/uredicertifikate',
-                                    state: {certificates: agent.certificates}
+                                    state: {agent: agent}
                                 });
                             }}>
                         Ažuriranje certifikata

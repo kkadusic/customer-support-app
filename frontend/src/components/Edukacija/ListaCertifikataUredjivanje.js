@@ -8,7 +8,7 @@ const ListaCertifikataUredjivanje = () => {
 
     const history = useHistory();
     const location = useLocation();
-    const certificates = location.state.certificates;
+    const certificates = location.state.agent.certificates;
 
     return (
         <div className="lista">

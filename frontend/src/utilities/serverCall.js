@@ -27,10 +27,11 @@ export const getEmployees = async () => {
     return (await axios.get(hostUrl + '/knowledge-management/employees', config())).data;
 };
 
-export const getEmployee = async (employeeId) => {
-    return (await axios.get(hostUrl + '/knowledge-management/employees', getParams({employeeId}))).data;
+// export const getCertificate = async (certificateId) => {
+//     return (await axios.get(hostUrl + '/knowledge-management/employees/certificate/' + certificateId, config())).data;
+// };
+
+export const addEducation = async (education) => {
+    return (await axios.post(hostUrl + '/knowledge-management/employees/education', {...education}, config())).data;
 };
 
-export const deleteEmployee = async (employeeId) => {
-    return (await axios.delete(hostUrl + '/knowledge-management/employees', getParams({employeeId}))).data;
-};
