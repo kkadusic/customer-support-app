@@ -1,21 +1,17 @@
 import React from 'react';
 import './certifikati-edukacije.css'
 import Certifikat from '../Rjesenje/Certifikat';
+import {useLocation} from "react-router-dom";
 
 const ListaCertifikataPregled = (props) => {
-
-    let certifikat = {
-        naslov: 'Naslov certifikata',
-        organizacija: "Naziv odgovorne organizacije",
-        datum: "01/01/2021"
-    };
+    const location = useLocation();
+    const certificates = location.state.certificates;
 
     return (
         <div className="grid-certifikata">
-            <Certifikat naslov={certifikat.naslov} org={certifikat.organizacija} datum={certifikat.datum}/>
-            <Certifikat naslov={certifikat.naslov} org={certifikat.organizacija} datum={certifikat.datum}/>
-            <Certifikat naslov={certifikat.naslov} org={certifikat.organizacija} datum={certifikat.datum}/>
-            <Certifikat naslov={certifikat.naslov} org={certifikat.organizacija} datum={certifikat.datum}/>
+            {certificates.map(certifikat => (
+                <Certifikat naslov={certifikat.name} org={certifikat.issuingOrganization} datum={certifikat.issueDate}/>
+            ))}
             {props.uredjivanje && <button className="dodaj">Dodaj certifikat</button>}
         </div>
     );

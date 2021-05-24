@@ -27,7 +27,10 @@ const AgentKartica = ({agent}) => {
             </button>
             <button className="uredi"
                     onClick={() => {
-                        history.push("/urediagenta")
+                        history.push({
+                            pathname: '/urediagenta',
+                            state: {agent: agent}
+                        });
                     }}
             >
                 Uređivanje

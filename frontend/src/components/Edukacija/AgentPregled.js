@@ -25,18 +25,23 @@ const AgentPregled = () => {
                     <input type="email" id="email" disabled={true} value={agent.email}/>
                     <label for="email">E-mail</label>
                 </div>
-
                 <div className="dugmad">
                     <button className="dodaj"
                             onClick={() => {
-                                history.push("/preglededukacija")
+                                history.push({
+                                    pathname: '/preglededukacija',
+                                    state: {educations: agent.educations}
+                                });
                             }}>
                         Pregled edukacija
                     </button>
                     <br/>
                     <button className="dodaj"
                             onClick={() => {
-                                history.push("/pregledcertifikata")
+                                history.push({
+                                    pathname: '/pregledcertifikata',
+                                    state: {certificates: agent.certificates}
+                                });
                             }}>
                         Pregled certifikata
                     </button>
