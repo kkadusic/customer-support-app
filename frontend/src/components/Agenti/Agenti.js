@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import AgentKartica from './AgentKartica';
 import Pretraga from '../Pretraga/Pretraga';
 import {getEmployees} from "../../utilities/serverCall";
+import {message} from 'antd';
 
 const Agenti = () => {
     const [agents, setAgents] = useState([]);
@@ -11,7 +12,7 @@ const Agenti = () => {
             try {
                 setAgents(await getEmployees());
             } catch (error) {
-                console.log(error.response.data.message);
+                message.warning(error.response.data.message);
             }
         }
         fetchData();
@@ -22,7 +23,7 @@ const Agenti = () => {
             <Pretraga/>
             <div className="zahtjevi-grid">
                 {agents.map(agent => (
-                    <AgentKartica agent={agent}/>
+                    <AgentKartica key={agent.id} agent={agent}/>
                 ))}
             </div>
             <button className="lijevi">&lt;&lt;</button>

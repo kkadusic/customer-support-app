@@ -1,10 +1,13 @@
 import React from 'react';
 import {useHistory} from 'react-router';
-import './certifikati-edukacije.css'
+import './certifikati-edukacije.css';
+import {useLocation} from "react-router-dom";
 
 const AgentPregled = () => {
 
     const history = useHistory();
+    const location = useLocation();
+    const agent = location.state.agent;
 
     return (
         <div className="prozor">
@@ -13,13 +16,13 @@ const AgentPregled = () => {
             <div className="forma-grid">
                 <div>
                     <h2>Podaci o agentu</h2>
-                    <input type="text" id="ime" disabled={true} value="ime"/>
+                    <input type="text" id="ime" disabled={true} value={agent.firstName}/>
                     <label for="ime">Ime</label>
-                    <input type="text" id="prezime" disabled={true} value="prezime"/>
+                    <input type="text" id="prezime" disabled={true} value={agent.lastName}/>
                     <label for="prezime">Prezime</label>
                     <input type="text" id="zanimanje" disabled={true} value="Agent"/>
                     <label for="telefon">Zanimanje</label>
-                    <input type="email" id="email" disabled={true} value="email@mail.com"/>
+                    <input type="email" id="email" disabled={true} value={agent.email}/>
                     <label for="email">E-mail</label>
                 </div>
 

@@ -17,7 +17,10 @@ const AgentKartica = ({agent}) => {
             </div>
             <button className="pregled"
                     onClick={() => {
-                        history.push("/pregledagenta")
+                        history.push({
+                            pathname: '/pregledagenta',
+                            state: {agent: agent}
+                        });
                     }}
             >
                 Pregled
