@@ -1,57 +1,48 @@
-import React from 'react';
-import {useHistory} from 'react-router';
-import './certifikati-edukacije.css'
-import Edukacija from '../Rjesenje/Edukacija';
+import React from "react";
+import {useHistory} from "react-router";
+import "./certifikati-edukacije.css";
+import Edukacija from "../Rjesenje/Edukacija";
+import {useLocation} from "react-router-dom";
 
 const ListaEdukacijaUredjivanje = () => {
-
     const history = useHistory();
-
-    let edukacija = {
-        ustanova: 'UNSA ETF',
-        stepen: "Bachelor",
-        oblast: "Informatika",
-        datumPocetka: "01/01/2018",
-        datumKraja: "01/01/2021"
-    };
+    const location = useLocation();
+    const educations = location.state.educations;
 
     return (
         <div className="lista">
             <div className="grid-certifikata">
-                <Edukacija ustanova={edukacija.ustanova}
-                           stepen={edukacija.stepen}
-                           oblast={edukacija.oblast}
-                           datumKraja={edukacija.datumKraja}
-                           datumPocetka={edukacija.datumPocetka}
-                           uredjivanje={true}
-                />
-                <Edukacija ustanova={edukacija.ustanova}
-                           stepen={edukacija.stepen}
-                           oblast={edukacija.oblast}
-                           datumKraja={edukacija.datumKraja}
-                           datumPocetka={edukacija.datumPocetka}
-                           uredjivanje={true}
-                />
-                <Edukacija ustanova={edukacija.ustanova}
-                           stepen={edukacija.stepen}
-                           oblast={edukacija.oblast}
-                           datumKraja={edukacija.datumKraja}
-                           datumPocetka={edukacija.datumPocetka}
-                           uredjivanje={true}
-                />
+                {!educations.length ? (
+                    <>Agent nema edukacija</>
+                ) : (
+                    <>
+                        {educations.map((edukacija) => (
+                            <Edukacija
+                                ustanova={edukacija.school}
+                                stepen={edukacija.degree}
+                                oblast={edukacija.fieldOfStudy}
+                                datumKraja={edukacija.endDate}
+                                datumPocetka={edukacija.startDate}
+                                uredjivanje={true}
+                            />
+                        ))}
+                    </>
+                )}
             </div>
-            <button className="dodaj"
-                    onClick={() => {
-                        history.push("/unosedukacije")
-                    }}
+            <button
+                className="dodaj"
+                onClick={() => {
+                    history.push("/unosedukacije");
+                }}
             >
                 Dodaj edukaciju
             </button>
-            <p>Nemate račun?
+            <p>
+                Nemate račun?
                 <a href="/register">Registrirajte se </a>
             </p>
         </div>
     );
-}
+};
 
 export default ListaEdukacijaUredjivanje;

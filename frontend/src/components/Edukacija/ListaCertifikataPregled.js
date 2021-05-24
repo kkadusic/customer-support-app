@@ -9,9 +9,19 @@ const ListaCertifikataPregled = (props) => {
 
     return (
         <div className="grid-certifikata">
-            {certificates.map(certifikat => (
-                <Certifikat naslov={certifikat.name} org={certifikat.issuingOrganization} datum={certifikat.issueDate}/>
-            ))}
+            {!certificates.length ?
+                (<>
+                    Agent nema certifikata
+                </>) :
+                (<>
+                    {certificates.map(certifikat => (
+                        <Certifikat naslov={certifikat.name}
+                                    org={certifikat.issuingOrganization}
+                                    datum={certifikat.issueDate}
+                        />
+                    ))}
+                </>)
+            }
             {props.uredjivanje && <button className="dodaj">Dodaj certifikat</button>}
         </div>
     );

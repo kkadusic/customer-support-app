@@ -2,36 +2,31 @@ import React from 'react';
 import {useHistory} from 'react-router';
 import Certifikat from '../Rjesenje/Certifikat';
 import './certifikati-edukacije.css';
+import {useLocation} from "react-router-dom";
 
 const ListaCertifikataUredjivanje = () => {
 
     const history = useHistory();
-
-    let certifikat = {
-        naslov: 'Naslov certifikata',
-        organizacija: "Naziv odgovorne organizacije",
-        datum: "01/01/2021"
-    };
+    const location = useLocation();
+    const certificates = location.state.certificates;
 
     return (
         <div className="lista">
             <div className="grid-certifikata">
-                <Certifikat naslov={certifikat.naslov}
-                            org={certifikat.organizacija}
-                            datum={certifikat.datum}
-                            uredjivanje={true}/>
-                <Certifikat naslov={certifikat.naslov}
-                            org={certifikat.organizacija}
-                            datum={certifikat.datum}
-                            uredjivanje={true}/>
-                <Certifikat naslov={certifikat.naslov}
-                            org={certifikat.organizacija}
-                            datum={certifikat.datum}
-                            uredjivanje={true}/>
-                <Certifikat naslov={certifikat.naslov}
-                            org={certifikat.organizacija}
-                            datum={certifikat.datum}
-                            uredjivanje={true}/>
+                {!certificates.length ?
+                    (<>
+                        Agent nema certifikata
+                    </>) :
+                    (<>
+                        {certificates.map(certifikat => (
+                            <Certifikat naslov={certifikat.name}
+                                        org={certifikat.issuingOrganization}
+                                        datum={certifikat.issueDate}
+                                        uredjivanje={true}
+                            />
+                        ))}
+                    </>)
+                }
             </div>
             <button className="dodaj"
                     onClick={() => {

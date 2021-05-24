@@ -28,14 +28,20 @@ const AgentUredjivanje = () => {
                 <div className="dugmad">
                     <button className="dodaj"
                             onClick={() => {
-                                history.push("/urediedukacije")
+                                history.push({
+                                    pathname: '/urediedukacije',
+                                    state: {educations: agent.educations}
+                                });
                             }}>
                         Ažuriranje edukacija
                     </button>
                     <br/>
                     <button className="dodaj"
                             onClick={() => {
-                                history.push("/uredicertifikate")
+                                history.push({
+                                    pathname: '/uredicertifikate',
+                                    state: {certificates: agent.certificates}
+                                });
                             }}>
                         Ažuriranje certifikata
                     </button>
