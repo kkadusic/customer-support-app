@@ -2,7 +2,7 @@ import React from 'react';
 import {useHistory} from 'react-router';
 import './agenti.css';
 
-const AgentKartica = (props) => {
+const AgentKartica = ({agent}) => {
 
     const history = useHistory();
 
@@ -12,8 +12,8 @@ const AgentKartica = (props) => {
                  alt="profilna"
             />
             <div className="ime-zvanje">
-                <h2 className="ime-prezime-agent">{props.ime} {props.prezime}</h2>
-                <p className="zvanje-agent">{props.zvanje}</p>
+                <h2 className="ime-prezime-agent">{agent.firstName} {agent.lastName}</h2>
+                {/*<p className="zvanje-agent">Agent</p>*/}
             </div>
             <button className="pregled"
                     onClick={() => {
