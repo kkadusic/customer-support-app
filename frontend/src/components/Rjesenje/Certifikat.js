@@ -15,9 +15,9 @@ const Certifikat = (props) => {
     const handleOk = async () => {
         try {
             const id = await deleteCertificate(props.id);
-            message.success("Certificate deleted.");
+            message.success("Certifikat obrisan", 3);
         } catch (error) {
-            message.warning("Error while deleting certificate");
+            message.warning("Greska prilikom brisanja certifikata");
         }
         setIsModalVisible(false);
         history.push('/');

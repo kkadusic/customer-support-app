@@ -19,7 +19,7 @@ const UnosCertifikata = () => {
         } catch (error) {
             message.warning(error.response.data.message);
         }
-        message.success("Certificate saved.");
+        message.success("Certifikat dodan");
         history.push('/');
     };
 

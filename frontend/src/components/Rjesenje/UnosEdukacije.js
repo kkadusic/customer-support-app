@@ -19,7 +19,7 @@ const UnosEdukacije = () => {
         } catch (error) {
             message.warning(error.response.data.message);
         }
-        message.success("Education saved.");
+        message.success("Edukacija dodana");
         history.push('/');
     };
 

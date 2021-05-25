@@ -18,6 +18,7 @@ const ListaEdukacijaUredjivanje = () => {
                     <>
                         {educations.map((edukacija) => (
                             <Edukacija
+                                id={edukacija.id}
                                 ustanova={edukacija.school}
                                 stepen={edukacija.degree}
                                 oblast={edukacija.fieldOfStudy}

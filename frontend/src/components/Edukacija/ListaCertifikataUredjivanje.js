@@ -5,12 +5,9 @@ import './certifikati-edukacije.css';
 import {useLocation} from "react-router-dom";
 
 const ListaCertifikataUredjivanje = () => {
-
     const history = useHistory();
     const location = useLocation();
     const certificates = location.state.agent.certificates;
-
-    console.log(certificates, "CER");
 
     return (
         <div className="lista">

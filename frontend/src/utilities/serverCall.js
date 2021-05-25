@@ -39,6 +39,10 @@ export const addCertificate = async (certificate) => {
     return (await axios.post(hostUrl + '/knowledge-management/employees/certificate', {...certificate}, config())).data;
 };
 
+export const deleteEducation = async (educationId) => {
+    return (await axios.delete(hostUrl + '/knowledge-management/employees/education/' + educationId, config())).data;
+};
+
 export const deleteCertificate = async (certificateId) => {
     return (await axios.delete(hostUrl + '/knowledge-management/employees/certificate/' + certificateId, config())).data;
 };
