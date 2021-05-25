@@ -16,9 +16,9 @@ INSERT INTO public.certificate (id, name, issuing_organization, issue_date, empl
 INSERT INTO public.certificate (id, name, issuing_organization, issue_date, employee_id) VALUES (502, 'English Language', 'YALE', '2009-09-22 13:35:18.847706', 501);
 INSERT INTO public.certificate (id, name, issuing_organization, issue_date, employee_id) VALUES (503, 'Project Management', 'Coursera', '2008-09-22 13:35:18.847706', 501);
 
-INSERT INTO public.category (id, name) VALUES (500, 'Category 1');
-INSERT INTO public.category (id, name) VALUES (501, 'Category 2');
-INSERT INTO public.category (id, name) VALUES (502, 'Category 3');
+INSERT INTO public.category (id, name) VALUES (500, 'Hardver');
+INSERT INTO public.category (id, name) VALUES (501, 'Softver');
+INSERT INTO public.category (id, name) VALUES (502, 'Ostalo');
 
 INSERT INTO public.client (id, first_name, last_name, email, phone_number, country, city) VALUES (500, 'Mike', 'Swift', 'mike.swift@gmail.com', '555-333-111', 'Italy', 'Rome');
 INSERT INTO public.client (id, first_name, last_name, email, phone_number, country, city) VALUES (501, 'Ben', 'Adams', 'ben.adams@gmail.com', '555-333-777', 'Spain', 'Madrid');
