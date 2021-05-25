@@ -52,7 +52,10 @@ const PregledZahtjeva = () => {
                     {/*<label htmlFor="neobradjen" className="radio-label">Obrađen</label><br/>*/}
                     <button className="forma-btn"
                             onClick={() => {
-                                history.push("/pregledrjesenja")
+                                history.push({
+                                    pathname: '/pregledrjesenja',
+                                    state: {solutions: incident.solutions}
+                                });
                             }}>
                         Pregled rješenja
                     </button>

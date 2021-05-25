@@ -54,3 +54,8 @@ export const deleteCertificate = async (certificateId) => {
 export const getIncidents = async () => {
     return (await axios.get(hostUrl + '/incident-management/incidents', config())).data;
 };
+
+export const getMyIncidents = async (employeeId) => {
+    const headers = {...config(), ...getParams({employeeId})};
+    return (await axios.get(hostUrl + '/incident-management/my-received-incidents', headers)).data;
+};
