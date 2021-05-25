@@ -4,18 +4,8 @@ import Pretraga from '../Pretraga/Pretraga';
 import './moji-zahtjevi.css';
 import {getIncidents} from "../../utilities/serverCall";
 import {message} from "antd";
-import AgentKartica from "../Agenti/AgentKartica";
 
 const SviZahtjevi = () => {
-
-    let zahtjev = {
-        datum: "15. Januar 2021.",
-        naziv: "Naziv zahtjeva",
-        vrijeme: "9:00", opis: "Opis zahtjeva",
-        imeKlijenta: "Neko Nekić",
-        kontaktKlijenta: "neko@email.com"
-    };
-
     const [incidents, setIncidents] = useState([]);
 
     useEffect(() => {
@@ -33,11 +23,6 @@ const SviZahtjevi = () => {
 
         <div className="prozor">
             <Pretraga/>
-            {/*<div className="zahtjevi-grid">*/}
-            {/*    <ZahtjevKartica {...zahtjev} />*/}
-            {/*    <ZahtjevKartica {...zahtjev} />*/}
-            {/*    <ZahtjevKartica {...zahtjev} />*/}
-            {/*</div>*/}
             <div className="zahtjevi-grid">
                 {incidents.map(incident => (
                     <ZahtjevKartica key={incident.id} incident={incident}/>

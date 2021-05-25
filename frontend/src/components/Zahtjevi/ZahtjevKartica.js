@@ -9,6 +9,7 @@ const ZahtjevKartica = ({incident}) => {
     return (
         <div className="kartica">
             <p className="datum">{incident.dateCreated}</p>
+            {/*TODO separate date and time*/}
             <h4 className="naziv">{incident.title}</h4>
             <p className="opis">{incident.description}</p>
             <div className="klijent">
@@ -18,6 +19,7 @@ const ZahtjevKartica = ({incident}) => {
                 />
                 <div className="podaci">
                     <h2 className="ime">{incident.client.firstName} {incident.client.lastName}</h2>
+                    <h2 className="kontakt">{incident.client.email}</h2>
                     <h2 className="kontakt">{incident.client.phoneNumber}</h2>
                 </div>
             </div>
@@ -26,7 +28,12 @@ const ZahtjevKartica = ({incident}) => {
                 Prosljeđivanje zahtjeva
             </button>
             <button className="zahtjev-btn"
-                    onClick={() => history.push("/pregledzahtjeva")}>
+                    onClick={() => {
+                        history.push({
+                            pathname: '/pregledzahtjeva',
+                            state: {incident: incident}
+                        });
+                    }}>
                 Pregled zahtjeva
             </button>
         </div>
