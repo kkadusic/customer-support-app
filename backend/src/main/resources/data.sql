@@ -15,3 +15,16 @@ INSERT INTO public.certificate (id, name, issuing_organization, issue_date, empl
 INSERT INTO public.certificate (id, name, issuing_organization, issue_date, employee_id) VALUES (501, 'Java Fundamentals', 'Udemy', '2007-09-22 13:35:18.847706', 500);
 INSERT INTO public.certificate (id, name, issuing_organization, issue_date, employee_id) VALUES (502, 'English Language', 'YALE', '2009-09-22 13:35:18.847706', 501);
 INSERT INTO public.certificate (id, name, issuing_organization, issue_date, employee_id) VALUES (503, 'Project Management', 'Coursera', '2008-09-22 13:35:18.847706', 501);
+
+INSERT INTO public.category (id, name) VALUES (500, 'Category 1');
+INSERT INTO public.category (id, name) VALUES (501, 'Category 2');
+INSERT INTO public.category (id, name) VALUES (502, 'Category 3');
+
+INSERT INTO public.client (id, first_name, last_name, email, phone_number, country, city) VALUES (500, 'Mike', 'Swift', 'mike.swift@gmail.com', '555-333-111', 'Italy', 'Rome');
+INSERT INTO public.client (id, first_name, last_name, email, phone_number, country, city) VALUES (501, 'Ben', 'Adams', 'ben.adams@gmail.com', '555-333-777', 'Spain', 'Madrid');
+INSERT INTO public.client (id, first_name, last_name, email, phone_number, country, city) VALUES (502, 'Jane', 'Doe', 'jane.doe@gmail.com', '555-333-999', 'Russia', 'Moscow');
+
+INSERT INTO public.incident (id, date_created, date_updated, description, status, title, category_id, client_id) VALUES (500, '2020-09-22 13:35:18.847706', '2020-11-22 13:35:18.847706', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'CANCELED', 'Title 1', 500, 500);
+INSERT INTO public.incident (id, date_created, date_updated, description, status, title, category_id, client_id) VALUES (501, '2020-09-22 13:35:18.847706', '2020-11-22 13:35:18.847706', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'PENDING', 'Title 2', 501, 501);
+INSERT INTO public.incident (id, date_created, date_updated, description, status, title, category_id, client_id) VALUES (502, '2020-09-22 13:35:18.847706', '2020-11-22 13:35:18.847706', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'DELETED', 'Title 3', 502, 502);
+INSERT INTO public.incident (id, date_created, date_updated, description, status, title, category_id, client_id) VALUES (503, '2020-09-22 13:35:18.847706', '2020-11-22 13:35:18.847706', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'UNPROCESSED', 'Title 4', 502, 502);
