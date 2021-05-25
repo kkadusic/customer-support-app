@@ -20,6 +20,7 @@ const UnosEdukacije = () => {
             message.warning(error.response.data.message);
         }
         message.success("Education saved.");
+        history.push('/');
     };
 
     const onReset = () => {

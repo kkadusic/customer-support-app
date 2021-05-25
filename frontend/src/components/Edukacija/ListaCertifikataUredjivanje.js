@@ -10,6 +10,8 @@ const ListaCertifikataUredjivanje = () => {
     const location = useLocation();
     const certificates = location.state.agent.certificates;
 
+    console.log(certificates, "CER");
+
     return (
         <div className="lista">
             <div className="grid-certifikata">
@@ -19,7 +21,8 @@ const ListaCertifikataUredjivanje = () => {
                     </>) :
                     (<>
                         {certificates.map(certifikat => (
-                            <Certifikat naslov={certifikat.name}
+                            <Certifikat id={certifikat.id}
+                                        naslov={certifikat.name}
                                         org={certifikat.issuingOrganization}
                                         datum={certifikat.issueDate}
                                         uredjivanje={true}

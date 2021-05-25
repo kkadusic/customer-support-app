@@ -20,6 +20,7 @@ const UnosCertifikata = () => {
             message.warning(error.response.data.message);
         }
         message.success("Certificate saved.");
+        history.push('/');
     };
 
     const onReset = () => {
