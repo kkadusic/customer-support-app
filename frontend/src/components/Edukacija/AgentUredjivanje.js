@@ -17,13 +17,13 @@ const AgentUredjivanje = () => {
                 <div>
                     <h2>Podaci o agentu</h2>
                     <input type="text" id="ime" value={agent.firstName}/>
-                    <label for="ime">Ime</label>
+                    <label htmlFor="ime">Ime</label>
                     <input type="text" id="prezime" value={agent.lastName}/>
-                    <label for="prezime">Prezime</label>
+                    <label htmlFor="prezime">Prezime</label>
                     <input type="text" id="zanimanje" value="Agent"/>
-                    <label for="telefon">Zanimanje</label>
+                    <label htmlFor="telefon">Zanimanje</label>
                     <input type="email" id="email" value={agent.email}/>
-                    <label for="email">E-mail</label>
+                    <label htmlFor="email">E-mail</label>
                 </div>
                 <div className="dugmad">
                     <button className="dodaj"

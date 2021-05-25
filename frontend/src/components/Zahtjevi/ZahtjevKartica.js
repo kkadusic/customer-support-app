@@ -2,24 +2,23 @@ import React from 'react';
 import {useHistory} from 'react-router';
 import './zahtjevi.css';
 
-const ZahtjevKartica = (props) => {
+const ZahtjevKartica = ({incident}) => {
 
     const history = useHistory();
 
     return (
         <div className="kartica">
-            <p className="datum">{props.datum}</p>
-            <h4 className="naziv">{props.naziv}</h4>
-            <h4 className="naziv">{props.vrijeme}</h4>
-            <p className="opis">{props.opis}</p>
+            <p className="datum">{incident.dateCreated}</p>
+            <h4 className="naziv">{incident.title}</h4>
+            <p className="opis">{incident.description}</p>
             <div className="klijent">
                 <img className="profilna"
                      src="https://www.pngkey.com/png/full/73-730477_first-name-profile-image-placeholder-png.png"
                      alt="profilna"
                 />
                 <div className="podaci">
-                    <h2 className="ime">{props.imeKlijenta}</h2>
-                    <h2 className="kontakt">{props.kontaktKlijenta}</h2>
+                    <h2 className="ime">{incident.client.firstName} {incident.client.lastName}</h2>
+                    <h2 className="kontakt">{incident.client.phoneNumber}</h2>
                 </div>
             </div>
             <button className="zahtjev-btn"

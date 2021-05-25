@@ -1,10 +1,32 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useHistory} from 'react-router';
 import './agenti.css';
+import {deleteEmployee} from "../../utilities/serverCall";
+import {message, Modal} from "antd";
 
 const AgentKartica = ({agent}) => {
 
     const history = useHistory();
+    const [isModalVisible, setIsModalVisible] = useState(false);
+
+    const showModal = () => {
+        setIsModalVisible(true);
+    };
+
+    const handleOk = async () => {
+        try {
+            const id = await deleteEmployee(agent.id);
+            message.success("Agent obrisan", 3);
+        } catch (error) {
+            message.warning("Greska prilikom brisanja agenta");
+        }
+        setIsModalVisible(false);
+        history.push('/');
+    };
+
+    const handleCancel = () => {
+        setIsModalVisible(false);
+    };
 
     return (
         <div className="kartica-agent">
@@ -35,9 +57,12 @@ const AgentKartica = ({agent}) => {
             >
                 Uređivanje
             </button>
-            <button className="brisi">
+            <button className="brisi" onClick={showModal}>
                 Brisanje
             </button>
+            <Modal title="Potvrda brisanja agenta" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+                <p>Da li ste sigurni da želite obrisati agenta {agent.firstName} {agent.lastName}?</p>
+            </Modal>
         </div>
     );
 }
