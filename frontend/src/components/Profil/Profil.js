@@ -1,9 +1,10 @@
 import React from 'react'
+import './profil.css'
 
 const Profil = () => {
 
     return (
-        <div>
+        <div className="outer-profil">
             Profil
         </div>
     )

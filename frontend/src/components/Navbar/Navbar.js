@@ -1,6 +1,7 @@
 import React from 'react';
 import './navbar.css';
 import {Link} from 'react-router-dom';
+import {getToken} from '../../utilities/localStorage';
 
 const Navbar = () => {
 
@@ -11,11 +12,18 @@ const Navbar = () => {
     const linkOdjava = <Link className="navbar-link" to="/odjava">Odjava</Link>;
     const linkAgenti = <Link className="navbar-link" to="/agenti">Agenti</Link>;
     const linkRjesenja = <Link className="navbar-link" to="/rjesenja">Rješenja</Link>;
+    const linkPrijava = <Link className="navbar-link" to="/login">Prijava</Link>;
+
+    const updateNavbar = () => {
+        return getToken()!= null ? `${linkPocetna} | {linkDashboard} | {linkProfil} | {linkAgenti} | {linkZahtjevi} | {linkRjesenja} | {linkOdjava}` : {linkPocetna} | {linkPrijava} ;
+    }
 
     return (
+        
         <div className="navbar">
             {linkPocetna} | {linkDashboard} | {linkProfil} | {linkAgenti} | {linkZahtjevi} | {linkRjesenja} | {linkOdjava}
         </div>
+        
     );
 }
 

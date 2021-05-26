@@ -1,0 +1,11 @@
+.outer-profil {
+    text-align: left;
+    background-color: #3a4d46;
+    color: whitesmoke;
+    border-radius: 10px;
+    width: 700pt;
+    height: 530pt;
+    max-width: 400pt;
+    padding: 7pt;
+    margin: 10%;
+}
