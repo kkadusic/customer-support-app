@@ -13,7 +13,7 @@ const SviZahtjevi = () => {
             try {
                 setIncidents(await getIncidents());
             } catch (error) {
-                message.warning(error.response.data.message);
+                message.warning(error.response.data.message, 3);
             }
         }
         fetchData();

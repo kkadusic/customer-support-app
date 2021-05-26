@@ -18,7 +18,7 @@ const AgentKartica = ({agent}) => {
             const id = await deleteEmployee(agent.id);
             message.success("Agent obrisan", 3);
         } catch (error) {
-            message.warning("Greska prilikom brisanja agenta");
+            message.warning("Greska prilikom brisanja agenta", 3);
         }
         setIsModalVisible(false);
         history.push('/');

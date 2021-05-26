@@ -16,10 +16,10 @@ const UnosEdukacije = () => {
         education.employeeId = agent.id;
         try {
             const id = await addEducation(education);
+            message.success("Edukacija dodana", 3);
         } catch (error) {
-            message.warning(error.response.data.message);
+            message.warning(error.response.data.message, 3);
         }
-        message.success("Edukacija dodana");
         history.push('/');
     };
 
