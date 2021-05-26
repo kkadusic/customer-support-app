@@ -25,6 +25,20 @@ export const getUser = () => {
     }
 }
 
+// update user
+export const updateUser = (user) => {
+    let session = JSON.parse(localStorage.getItem(sessionItem));
+    console.log(session)
+    session.firstName = user.firstName;
+    session.secondName = user.secondName;
+    session.country = user.country;
+    session.city = user.city;
+    session.phoneNumber = user.phoneNumber; 
+
+    localStorage.setItem(sessionItem, JSON.stringify(session));
+
+}
+
 // set token and user to local storage
 export const setSession = (session) => {
     localStorage.setItem(sessionItem, JSON.stringify(session));

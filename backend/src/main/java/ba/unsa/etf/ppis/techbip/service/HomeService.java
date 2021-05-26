@@ -7,6 +7,7 @@ import ba.unsa.etf.ppis.techbip.model.Role;
 import ba.unsa.etf.ppis.techbip.model.RoleName;
 import ba.unsa.etf.ppis.techbip.repository.EmployeeRepository;
 import ba.unsa.etf.ppis.techbip.repository.RoleRepository;
+import ba.unsa.etf.ppis.techbip.request.EmployeeUpdate;
 import ba.unsa.etf.ppis.techbip.request.LoginRequest;
 import ba.unsa.etf.ppis.techbip.request.RegisterRequest;
 import ba.unsa.etf.ppis.techbip.response.LoginResponse;
@@ -78,7 +79,7 @@ public class HomeService {
         for (Role role : emp.getRoles()) roles.add(role.getRolename().name());
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        return new LoginResponse(jwtTokenProvider.generateToken(authentication, new EmployeeWrapper( emp.getFirstName(), emp.getLastName(),
+        return new LoginResponse(jwtTokenProvider.generateToken(authentication, new EmployeeWrapper( emp.getId().toString(),emp.getFirstName(), emp.getLastName(),
                 emp.getCountry(), emp.getCity(), emp.getEmail(), emp.getPhoneNumber(), emp.getUsername(), roles)));
     }
 
@@ -87,5 +88,16 @@ public class HomeService {
         return employeeRepository
                 .findByUsername(username)
                 .orElseThrow(() -> new ResourceNotFoundException(errorMessage));
+    }
+
+    public String updateEmployee(EmployeeUpdate employeeUpdate) {
+        Employee employee = employeeRepository.findById(employeeUpdate.getId()).orElseThrow(() -> new ResourceNotFoundException("user does not exist"));
+        employee.setCity(employeeUpdate.getCity());
+        employee.setCountry(employeeUpdate.getCountry());
+        employee.setFirstName(employeeUpdate.getFirstName());
+        employee.setLastName(employeeUpdate.getLastName());
+        employee.setPhoneNumber(employeeUpdate.getPhoneNumber());
+        employeeRepository.save(employee);
+        return "Successfully updated profile!";
     }
 }

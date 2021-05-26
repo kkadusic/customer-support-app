@@ -13,6 +13,7 @@ import ba.unsa.etf.ppis.techbip.service.HomeService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -49,4 +50,11 @@ public class HomeController {
         Employee employee = homeService.getEmployeeByUsername(userPrincipal.getUsername());
         return ResponseEntity.ok(employee);
     }
+
+    @Secured({ "ROLE_EMPLOYEE", "ROLE_ADMIN" })
+    @PutMapping("/profil")
+    public ResponseEntity<String> updateEmployee(@RequestBody EmployeeUpdate employeeUpdate){
+        return  ResponseEntity.ok(homeService.updateEmployee(employeeUpdate));
+    }
+
 }

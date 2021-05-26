@@ -8,6 +8,7 @@ import java.util.ArrayList;
 @Data
 @AllArgsConstructor
 public class EmployeeWrapper {
+    private String id;
     private String firstName;
     private String lastName;
     private String country;

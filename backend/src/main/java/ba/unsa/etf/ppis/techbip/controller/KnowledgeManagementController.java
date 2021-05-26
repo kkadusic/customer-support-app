@@ -50,6 +50,7 @@ public class KnowledgeManagementController {
     }
 
 
+
     @Secured("ROLE_ADMIN")
     @DeleteMapping("/employees/{id}")
     public ResponseEntity<Response> deleteEmployee(@PathVariable Long id){

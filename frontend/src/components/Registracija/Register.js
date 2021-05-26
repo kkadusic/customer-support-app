@@ -157,7 +157,7 @@ const Register = () => {
                     se
                 </button>
             </form>
-            <p id="error-label">{errorLabel}</p>
+            <p className="errorcls">{errorLabel}</p>
         </div>
     )
 }

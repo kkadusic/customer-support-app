@@ -3,9 +3,68 @@
     background-color: #3a4d46;
     color: whitesmoke;
     border-radius: 10px;
-    width: 700pt;
-    height: 530pt;
-    max-width: 400pt;
-    padding: 7pt;
-    margin: 10%;
+    width: 600pt;
+    height: 550pt;
+    padding: 10pt;
+    margin: 5%;
+    margin-top: 8%;
+}
+
+.grid-profil {
+    grid-template-rows:  repeat(7, minmax(auto, 1fr));
+    overflow: hidden;
+    height: 420pt;
+    margin-top: 3%;
+    margin-left: 3%;
+}
+
+.grid-profil input {
+    margin-top: -2%;
+    width: 90%;
+    background-color: rgba(170, 170, 170, 0.199);
+    border: 2px solid rgb(236, 162, 149);
+    border-radius: 10px;
+    color: white;
+    line-height: 8pt;
+    font-size: 15pt;
+}
+
+.div-cell {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.div-title {
+    font-size: 14pt;
+    color: rgb(236, 162, 149);
+    text-align: left;
+}
+
+.dis-btn {
+    background-color: rgba(170, 170, 170, 0.199) !important;
+    border: 2px solid rgb(170, 170, 170) !important;
+}
+
+.val-style {
+    background-color: lightcoral !important;
+    border: red 2px solid !important;
+}
+
+#update-btn {
+    background-color: rgb(236, 162, 149);
+    color: #3a4d46;
+    border-radius: 20px;
+    width: 150pt;
+    height: 30pt;
+    font-size: 15pt;
+    margin-left: 35%;
+}
+
+.err {
+    justify-content: center;
+    font-size: 12pt;
+    font-weight: 400;
+    color: red;
+    margin-left: 35%;
 }
