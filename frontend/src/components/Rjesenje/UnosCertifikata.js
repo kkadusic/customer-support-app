@@ -16,10 +16,10 @@ const UnosCertifikata = () => {
         certificate.employeeId = agent.id;
         try {
             const id = await addCertificate(certificate);
+            message.success("Certifikat dodan", 3);
         } catch (error) {
-            message.warning(error.response.data.message);
+            message.warning(error.response.data.message, 3);
         }
-        message.success("Certifikat dodan");
         history.push('/');
     };
 

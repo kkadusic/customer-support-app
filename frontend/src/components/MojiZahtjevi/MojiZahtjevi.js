@@ -27,7 +27,7 @@ const MojiZahtjevi = () => {
                 // TODO send id from logged in employee
                 setIncidents(await getMyIncidents(1));
             } catch (error) {
-                message.warning(error.response.data.message);
+                message.warning(error.response.data.message, 3);
             }
         }
         fetchData();

@@ -12,7 +12,7 @@ const Agenti = () => {
             try {
                 setAgents(await getEmployees());
             } catch (error) {
-                message.warning(error.response.data.message);
+                message.warning(error.response.data.message, 3);
             }
         }
         fetchData();
