@@ -29,6 +29,10 @@ export const getEmployees = async () => {
     return (await axios.get(hostUrl + '/knowledge-management/employees', config())).data;
 };
 
+export const getEmployeesWithEmpRole = async () => {
+    return (await axios.get(hostUrl + '/knowledge-management/employees/emp', config())).data;
+};
+
 export const deleteEmployee = async (employeeId) => {
     return (await axios.delete(hostUrl + '/knowledge-management/employees/' + employeeId, config())).data;
 };
@@ -58,4 +62,8 @@ export const getIncidents = async () => {
 export const getMyIncidents = async (employeeId) => {
     const headers = {...config(), ...getParams({employeeId})};
     return (await axios.get(hostUrl + '/incident-management/my-received-incidents', headers)).data;
+};
+
+export const forwardIncident = async (incidentData) => {
+    return (await axios.post(hostUrl + '/incident-management/forward-incident', {...incidentData}, config())).data;
 };

@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Service
@@ -171,15 +172,24 @@ public class IncidentManagementService {
     public Response forwardIncident(ForwardIncidentRequest forwardIncidentRequest) {
         Optional<Incident> incident = incidentRepository.findById(forwardIncidentRequest.getIncidentId());
         if(incident.isEmpty()) throw new ResourceNotFoundException("Incident with Id = " + forwardIncidentRequest.getIncidentId() + " does not exist.");
+        Optional<Employee> newEmployee = employeeRepository.findById(forwardIncidentRequest.getEmployeeId());
+        Optional<Employee> currentEmployee = employeeRepository.findById(forwardIncidentRequest.getCurrentEmployee());
+        if(newEmployee.isEmpty() || currentEmployee.isEmpty()) throw new ResourceNotFoundException("Employee with Id = " + forwardIncidentRequest.getIncidentId() + " does not exist.");
 
-        Optional<Employee> employee = employeeRepository.findById(forwardIncidentRequest.getEmployeeId());
-        if(employee.isEmpty()) throw new ResourceNotFoundException("Employee with Id = " + forwardIncidentRequest.getIncidentId() + " does not exist.");
+        Incident inc = incident.get();
+        Employee emp = newEmployee.get(), currEmp = currentEmployee.get();
+        // dodaj incident novom zaposleniku
+        Set<Incident> empInc = emp.getIncidents();
+        empInc.add(inc);
+        emp.setIncidents(empInc);
+        employeeRepository.save(emp);
 
-        List<Incident> incidents = Collections.singletonList(incident.get());
-        employee.get().setIncidents(new HashSet<>(incidents));
-
-        employeeRepository.save(employee.get());
-
+        // ukloni incident starom zaposleniku
+        Set<Incident> currInc = currEmp.getIncidents();
+        Set<Incident> newHashSet = currInc.stream().filter(item -> (item.getId().equals(forwardIncidentRequest.getIncidentId()))).collect(Collectors.toCollection(HashSet::new));
+        System.out.println(newHashSet);
+        currEmp.setIncidents(newHashSet);
+        employeeRepository.save(currEmp);
         return new Response("Incident is forwarded.");
     }
 

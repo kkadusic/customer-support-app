@@ -1,19 +1,18 @@
 package ba.unsa.etf.ppis.techbip.service;
 
 import ba.unsa.etf.ppis.techbip.exception.ResourceNotFoundException;
-import ba.unsa.etf.ppis.techbip.model.Certificate;
-import ba.unsa.etf.ppis.techbip.model.Education;
-import ba.unsa.etf.ppis.techbip.model.Employee;
-import ba.unsa.etf.ppis.techbip.model.Incident;
+import ba.unsa.etf.ppis.techbip.model.*;
 import ba.unsa.etf.ppis.techbip.repository.CertificateRepository;
 import ba.unsa.etf.ppis.techbip.repository.EducationRepository;
 import ba.unsa.etf.ppis.techbip.repository.EmployeeRepository;
 import ba.unsa.etf.ppis.techbip.request.*;
+import ba.unsa.etf.ppis.techbip.response.ReducedEmployeeResponse;
 import ba.unsa.etf.ppis.techbip.response.Response;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,6 +27,19 @@ public class KnowledgeManagementService {
         List<Employee> employees = employeeRepository.findByFilter(employeeFilterRequest);
         if (employees.size() == 0) throw new ResourceNotFoundException("Employee does not exist.");
         return employees;
+    }
+
+    public List<ReducedEmployeeResponse> getEmployeesWithEmpRole() {
+        List<Employee> emp = employeeRepository.findAll();
+        List<ReducedEmployeeResponse> empRoleEmployees = new ArrayList<>();
+        for (Employee employee: emp) {
+            for (Role role : employee.getRoles()) {
+                if (role.getRolename() == RoleName.ROLE_EMPLOYEE) {
+                    empRoleEmployees.add(new ReducedEmployeeResponse(employee.getId(), employee.getFirstName(), employee.getLastName()));
+                }
+            }
+        }
+        return empRoleEmployees;
     }
 
     public Employee getEmployee(Long id) {

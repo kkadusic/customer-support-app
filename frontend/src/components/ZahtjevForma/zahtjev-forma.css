@@ -135,6 +135,11 @@
 
 .agenti {
     float: left;
+    width:250pt;
+    height: 40pt;
+    line-height: 20pt;
+    font-size: 15pt;
+    color: black;
 }
 
 .forma-grid input[type="radio"][disabled]:checked {

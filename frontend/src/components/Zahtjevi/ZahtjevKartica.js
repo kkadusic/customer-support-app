@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {useHistory} from 'react-router';
 import './zahtjevi.css';
 
 const ZahtjevKartica = ({incident}) => {
 
     const history = useHistory();
-
+   /* 
+    useEffect(() => {
+        effect
+        return () => {
+            cleanup
+        }
+    }, []) */
     return (
         <div className="kartica">
             <p className="datum">{incident.dateCreated}</p>
@@ -24,7 +30,7 @@ const ZahtjevKartica = ({incident}) => {
                 </div>
             </div>
             <button className="zahtjev-btn"
-                    onClick={() => history.push("/prosljedjivanjezahtjeva")}>
+                    onClick={() => history.push({pathname:"/prosljedjivanjezahtjeva", state: {id : incident.id}})}>
                 Prosljeđivanje zahtjeva
             </button>
             <button className="zahtjev-btn"

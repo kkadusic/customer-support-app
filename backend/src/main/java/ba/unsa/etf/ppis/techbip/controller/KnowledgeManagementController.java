@@ -6,6 +6,7 @@ import ba.unsa.etf.ppis.techbip.model.Education;
 import ba.unsa.etf.ppis.techbip.model.Employee;
 import ba.unsa.etf.ppis.techbip.model.Incident;
 import ba.unsa.etf.ppis.techbip.request.*;
+import ba.unsa.etf.ppis.techbip.response.ReducedEmployeeResponse;
 import ba.unsa.etf.ppis.techbip.response.Response;
 import ba.unsa.etf.ppis.techbip.service.IncidentManagementService;
 import ba.unsa.etf.ppis.techbip.service.KnowledgeManagementService;
@@ -40,6 +41,13 @@ public class KnowledgeManagementController {
                 firstName, lastName, email, username
         );
         return ResponseEntity.ok(knowledgeManagementService.getEmployees(employeeFilterRequest));
+    }
+
+    @Secured({ "ROLE_ADMIN", "ROLE_EMPLOYEE" })
+    @GetMapping("/employees/emp")
+    public ResponseEntity<List<ReducedEmployeeResponse>> getOnlyEmployeesWithEmpRole()
+    {
+        return ResponseEntity.ok(knowledgeManagementService.getEmployeesWithEmpRole());
     }
 
     @Secured({ "ROLE_ADMIN", "ROLE_EMPLOYEE" })

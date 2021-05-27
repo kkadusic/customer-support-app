@@ -56,4 +56,14 @@ public class Incident {
         this.description = description;
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "Incident{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", status=" + status +
+                '}';
+    }
 }

@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ForwardIncidentRequest {
+    private Long currentEmployee;
     private Long incidentId;
     private Long employeeId;
 }

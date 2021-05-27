@@ -7,25 +7,13 @@ import {message} from "antd";
 import {getUser} from "../../utilities/localStorage";
 
 const MojiZahtjevi = () => {
-
-    // let zahtjev = {
-    //     datum: "15. Januar 2021.",
-    //     naziv: "Naziv zahtjeva",
-    //     vrijeme: "9:00",
-    //     opis: "Opis zahtjeva",
-    //     imeKlijenta: "Neko Nekić",
-    //     kontaktKlijenta: "neko@email.com"
-    // };
-
-    console.log(getUser());
-
     const [incidents, setIncidents] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                // TODO send id from logged in employee
-                setIncidents(await getMyIncidents(1));
+                let id = Number(getUser().id)
+                setIncidents(await getMyIncidents(id));
             } catch (error) {
                 message.warning(error.response.data.message, 3);
             }
@@ -36,11 +24,11 @@ const MojiZahtjevi = () => {
     return (
         <div className="prozor">
             <Pretraga/>
-            {/*<div className="zahtjevi-grid">*/}
-            {/*    <ZahtjevKartica {...zahtjev} />*/}
-            {/*    <ZahtjevKartica {...zahtjev} />*/}
-            {/*    <ZahtjevKartica {...zahtjev} />*/}
-            {/*</div>*/}
+            <div className="zahtjevi-grid">
+                {incidents.map(incident => (
+                    <ZahtjevKartica key={incident.id} incident={incident}/>
+                ))}
+            </div>
             <button className="lijevi">&lt;&lt;</button>
             <button className="desni">&gt;&gt;</button>
         </div>
