@@ -1,14 +1,19 @@
 import React from 'react'
 import './profil.css'
-import {getUser, updateUser} from '../../utilities/localStorage'
-import {useState} from 'react'
+import {getToken, getUser, updateUser} from '../../utilities/localStorage'
+import {useState, useEffect} from 'react'
 import axios from 'axios'
 import {config} from '../../utilities/serverCall'
+import {Redirect, useHistory} from 'react-router-dom'
 const Profil = () => {
     const [userData, setUserData] = useState(getUser())
     const [errorLabel, setErrorLabel] = useState("")
     const [fieldStyle, setFieldStyle] = useState({city: false, country: false, firstName: false, lastName: false, phoneNumber: false })
-    
+    let history = useHistory()
+
+
+    const lgIn = () => history.push("/login");
+
     const checkString = ({name, value}) => {
         return (value.length < 3 || value.length > 50);
     }
@@ -57,35 +62,35 @@ const Profil = () => {
             <div className="grid-profil">
                     <div className="div-cell">
                         <p className="div-title">Ime </p>
-                        <input type="text" name="firstName" value={userData.firstName} onChange={handleChange} onBlur={validateString}
+                        <input type="text" name="firstName" value={userData ? userData.firstName : lgIn ()} onChange={handleChange} onBlur={validateString}
                                className={fieldStyle.firstName ? "val-style" : ""}></input>
                     </div>
                     <div className="div-cell">
                         <p className="div-title">Prezime </p>
-                        <input type="text" name="lastName"  value={userData.lastName} onChange={handleChange} onBlur={validateString}
+                        <input type="text" name="lastName"  value={userData ? userData.lastName: lgIn ()} onChange={handleChange} onBlur={validateString}
                                className={fieldStyle.lastName ? "val-style" : ""}></input>
                     </div>
                     <div className="div-cell">
                         <p className="div-title">Korisničko ime </p>
-                        <input type="text" name="username" value={userData.username} className="dis-btn" disabled></input>
+                        <input type="text" name="username" value={userData ? userData.username : lgIn ()} className="dis-btn" disabled></input>
                     </div>
                     <div className="div-cell">
                         <p className="div-title">Email adresa </p>
-                        <input type="text" name="email" value={userData.email} className="dis-btn" disabled></input>
+                        <input type="text" name="email" value={userData ? userData.email : lgIn ()} className="dis-btn" disabled></input>
                     </div>
                     <div className="div-cell">
                         <p className="div-title">Broj telefona </p>
-                        <input type="text" name="phoneNumber" value={userData.phoneNumber} onChange={handleChange} onBlur={validateString}
+                        <input type="text" name="phoneNumber" value={userData ? userData.phoneNumber : lgIn ()} onChange={handleChange} onBlur={validateString}
                                className={fieldStyle.phoneNumber ? "val-style" : ""}></input>
                     </div>
                     <div className="div-cell">
                         <p className="div-title">Grad </p>
-                        <input type="text" name="city" value={userData.city} onChange={handleChange} onBlur={validateString}
+                        <input type="text" name="city" value={userData ? userData.city : lgIn ()} onChange={handleChange} onBlur={validateString}
                                className={fieldStyle.city ? "val-style" : ""}></input>
                     </div>
                     <div className="div-cell">
                         <p className="div-title">Država </p>
-                        <input type="text" name="country"  value={userData.country} onChange={handleChange} onBlur={validateString}
+                        <input type="text" name="country"  value={userData ? userData.country : lgIn ()} onChange={handleChange} onBlur={validateString}
                                className={fieldStyle.country ? "val-style" : ""}></input>
                     </div>
                 </div>

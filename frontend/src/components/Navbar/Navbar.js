@@ -1,30 +1,43 @@
 import React from 'react';
 import './navbar.css';
-import {Link} from 'react-router-dom';
-import {getToken} from '../../utilities/localStorage';
+import {Link, useHistory} from 'react-router-dom';
+import {getToken, removeSession, updateUser} from '../../utilities/localStorage';
+
 
 const Navbar = () => {
 
-    const linkPocetna = <Link className="navbar-link" to="/">Početna</Link>;
-    const linkDashboard = <Link className="navbar-link" to="/dashboard">Dashboard</Link>;
-    const linkProfil = <Link className="navbar-link" to="/profil">Profil</Link>;
-    const linkZahtjevi = <Link className="navbar-link" to="/zahtjevi">Korisnički zahtjevi</Link>;
-    const linkOdjava = <Link className="navbar-link" to="/odjava">Odjava</Link>;
-    const linkAgenti = <Link className="navbar-link" to="/agenti">Agenti</Link>;
-    const linkRjesenja = <Link className="navbar-link" to="/rjesenja">Rješenja</Link>;
-    const linkPrijava = <Link className="navbar-link" to="/login">Prijava</Link>;
+    let history = useHistory()
+    const odjavi = () => {
+        removeSession()
+        history.push("/pocetna")
+    }
+    
+    const linkPocetna = <><Link className="navbar-link" to="/">Početna</Link><span>|</span></>;
+    const linkDashboard = <><Link className="navbar-link" to="/dashboard">Dashboard</Link><span>|</span></>;
+    const linkProfil = <><Link className="navbar-link" to="/profil">Profil</Link><span>|</span></>;
+    const linkZahtjevi = <><Link className="navbar-link" to="/zahtjevi">Korisnički zahtjevi</Link><span>|</span></>;
+    const linkOdjava = <Link className="navbar-link" to="/" onClick={odjavi}>Odjava</Link>;
+    const linkAgenti = <><Link className="navbar-link" to="/agenti">Agenti</Link><span>|</span></>;
+    const linkRjesenja = <><Link className="navbar-link" to="/rjesenja">Rješenja</Link><span>|</span></>;
+    const linkPrijava = <><Link className="navbar-link" to="/login">Prijava</Link><span>|</span></>;
 
-    const updateNavbar = () => {
-        return getToken()!= null ? `${linkPocetna} | {linkDashboard} | {linkProfil} | {linkAgenti} | {linkZahtjevi} | {linkRjesenja} | {linkOdjava}` : {linkPocetna} | {linkPrijava} ;
+    const updateNavbar = (status) => {
+        return status ? [linkPocetna,  linkPrijava, linkDashboard, linkProfil , linkAgenti, linkZahtjevi, linkRjesenja, linkOdjava] : [linkPocetna, linkPrijava];
     }
 
     return (
         
         <div className="navbar">
-            {linkPocetna} | {linkDashboard} | {linkProfil} | {linkAgenti} | {linkZahtjevi} | {linkRjesenja} | {linkOdjava}
+           { 
+           updateNavbar(true).map((item) => item )
+           }
         </div>
         
     );
 }
 
 export default Navbar;
+
+/*
+ {linkPocetna} | {linkDashboard} | {linkProfil} | {linkAgenti} | {linkZahtjevi} | {linkRjesenja} | {linkOdjava}
+*/

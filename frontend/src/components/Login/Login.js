@@ -3,7 +3,7 @@ import {Form, Input, Button, Checkbox} from 'antd'
 import './login.css'
 import axios from 'axios'
 import {setSession, prepareUserObject} from "../../utilities/localStorage"
-import {decode} from "jsonwebtoken";
+import {useHistory} from 'react-router-dom';
 
 const layout = {
     labelCol: {
@@ -22,11 +22,13 @@ const tailLayout = {
 
 const Login = () => {
 
+    let history = useHistory()
+
     const onFinish = (value) => {
         axios.post("http://localhost:8081/auth/login", value).then(
             (respDat) => {
-                setSession(prepareUserObject(respDat.data.token))
-
+                setSession(prepareUserObject(respDat.data.token));
+                history.push("/dashboard");
             }
         ).catch(err => {
 

@@ -12,6 +12,9 @@ const Dashboard = () => {
             <DashboardKartica naslov="Moj profil"
                               opis="Pregled korisničkog računa"
                               dugme="Pregled"
+                              handleClick={() => {
+                                history.push("/profil")
+                            }}
             />
             <DashboardKartica naslov="Agenti"
                               opis="Pregled informacija o uposlenima odjela"
