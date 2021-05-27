@@ -185,11 +185,11 @@ public class IncidentManagementService {
         employeeRepository.save(emp);
 
         // ukloni incident starom zaposleniku
-        Set<Incident> currInc = currEmp.getIncidents();
+       /* Set<Incident> currInc = currEmp.getIncidents();
         Set<Incident> newHashSet = currInc.stream().filter(item -> (item.getId().equals(forwardIncidentRequest.getIncidentId()))).collect(Collectors.toCollection(HashSet::new));
         System.out.println(newHashSet);
         currEmp.setIncidents(newHashSet);
-        employeeRepository.save(currEmp);
+        employeeRepository.save(currEmp);  */
         return new Response("Incident is forwarded.");
     }
 

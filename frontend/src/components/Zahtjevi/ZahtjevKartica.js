@@ -5,13 +5,10 @@ import './zahtjevi.css';
 const ZahtjevKartica = ({incident}) => {
 
     const history = useHistory();
-   /* 
+   
     useEffect(() => {
-        effect
-        return () => {
-            cleanup
-        }
-    }, []) */
+
+    }, []) 
     return (
         <div className="kartica">
             <p className="datum">{incident.dateCreated}</p>

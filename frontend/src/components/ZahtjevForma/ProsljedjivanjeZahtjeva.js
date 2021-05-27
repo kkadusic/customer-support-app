@@ -19,6 +19,7 @@ const ProsljedjivanjeZahtjeva = () => {
 
     useEffect(() => {
         const fetchData = async () => {
+            console.log(incident_id);
             try {
                 let emp = await getEmployeesWithEmpRole();
                 var index = emp.findIndex(function(item, i){
@@ -43,12 +44,13 @@ const ProsljedjivanjeZahtjeva = () => {
                 try {
                 await forwardIncident(incidentObj);
                 alert("Operacija uspjesna!");
-
+                history.push("/zahtjevi");
                 }
                 catch (error) {
                     alert(error);
+                    history.push("/zahtjevi");
                 }
-                history.goBack();
+                
             }     
             fw(); 
         }
