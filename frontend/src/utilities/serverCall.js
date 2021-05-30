@@ -59,6 +59,10 @@ export const getIncidents = async () => {
     return (await axios.get(hostUrl + '/incident-management/incidents', config())).data;
 };
 
+export const addIncident = async (incident) => {
+    return (await axios.post(hostUrl + '/incident-management/incidents', {...incident}, config())).data;
+};
+
 export const getMyIncidents = async (employeeId) => {
     const headers = {...config(), ...getParams({employeeId})};
     return (await axios.get(hostUrl + '/incident-management/my-received-incidents', headers)).data;
