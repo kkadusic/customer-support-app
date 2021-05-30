@@ -17,7 +17,7 @@ const Edukacija = (props) => {
             const id = await deleteEducation(props.id);
             message.success("Edukacija obrisana", 3);
         } catch (error) {
-            message.warning("Greska prilikom brisanja edukacije");
+            message.warning("Greska prilikom brisanja edukacije", 3);
         }
         setIsModalVisible(false);
         history.push('/');

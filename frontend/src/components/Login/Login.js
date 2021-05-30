@@ -1,5 +1,5 @@
 import React from 'react'
-import {Form, Input, Button, Checkbox} from 'antd'
+import {Form, Input, Button, Checkbox, message} from 'antd'
 import './login.css'
 import axios from 'axios'
 import {setSession, prepareUserObject} from "../../utilities/localStorage"
@@ -29,9 +29,10 @@ const Login = () => {
             (respDat) => {
                 setSession(prepareUserObject(respDat.data.token));
                 history.push("/dashboard");
+                message.success("Uspjesna prijava", 3);
             }
         ).catch(err => {
-
+            message.error("Greska prilikom prijave", 3);
         })
 
     }

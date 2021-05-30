@@ -1,17 +1,18 @@
 import React from 'react';
-import './navbar.css';
 import {Link, useHistory} from 'react-router-dom';
-import {getToken, removeSession, updateUser} from '../../utilities/localStorage';
-
+import {removeSession} from '../../utilities/localStorage';
+import {message} from "antd";
+import './navbar.css';
 
 const Navbar = () => {
 
     let history = useHistory()
     const odjavi = () => {
-        removeSession()
-        history.push("/pocetna")
-    }
-    
+        removeSession();
+        history.push("/pocetna");
+        message.success("Uspjesno ste odjavljeni", 3);
+    };
+
     const linkPocetna = <><Link className="navbar-link" to="/">Početna</Link><span>|</span></>;
     const linkDashboard = <><Link className="navbar-link" to="/dashboard">Dashboard</Link><span>|</span></>;
     const linkProfil = <><Link className="navbar-link" to="/profil">Profil</Link><span>|</span></>;
@@ -22,17 +23,14 @@ const Navbar = () => {
     const linkPrijava = <><Link className="navbar-link" to="/login">Prijava</Link><span>|</span></>;
 
     const updateNavbar = (status) => {
-        return status ? [linkPocetna,  linkPrijava, linkDashboard, linkProfil , linkAgenti, linkZahtjevi, linkRjesenja, linkOdjava] : [linkPocetna, linkPrijava];
+        return status ? [linkPocetna, linkPrijava, linkDashboard, linkProfil, linkAgenti, linkZahtjevi, linkRjesenja, linkOdjava] : [linkPocetna, linkPrijava];
     }
 
     return (
-        
         <div className="navbar">
-           { 
-           updateNavbar(true).map((item) => item )
-           }
+            {updateNavbar(true).map((item) => item)}
         </div>
-        
+
     );
 }
 

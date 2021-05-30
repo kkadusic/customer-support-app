@@ -17,7 +17,7 @@ const Certifikat = (props) => {
             const id = await deleteCertificate(props.id);
             message.success("Certifikat obrisan", 3);
         } catch (error) {
-            message.warning("Greska prilikom brisanja certifikata");
+            message.warning("Greska prilikom brisanja certifikata", 3);
         }
         setIsModalVisible(false);
         history.push('/');
