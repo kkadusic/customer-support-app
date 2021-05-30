@@ -38,7 +38,6 @@ const Register = () => {
         const {name, value} = e.target
         setFieldStyle(fieldStyle => ({...fieldStyle, [name]: false}))
         setUser(user => ({...user, [name]: value}))
-
     }
 
     const onSubmitForm = (e) => {
@@ -110,47 +109,47 @@ const Register = () => {
                         <p className="div-title">Ime *</p>
                         <input type="text" name="firstName" onClick={handleClick} onChange={handleChange}
                                value={user.firstName} onBlur={validateString}
-                               className={fieldStyle.firstName ? "val-style" : ""}></input>
+                               className={fieldStyle.firstName ? "val-style" : ""}/>
                     </div>
                     <div className="div-cell">
                         <p className="div-title">Prezime *</p>
                         <input type="text" name="lastName" onClick={handleClick} onChange={handleChange}
                                value={user.lastName} onBlur={validateString}
-                               className={fieldStyle.lastName ? "val-style" : ""}></input>
+                               className={fieldStyle.lastName ? "val-style" : ""}/>
                     </div>
                     <div className="div-cell">
                         <p className="div-title">Korisničko ime *</p>
                         <input type="text" name="username" onClick={handleClick} onChange={handleChange}
                                value={user.username} onBlur={validateString}
-                               className={fieldStyle.username ? "val-style" : ""}></input>
+                               className={fieldStyle.username ? "val-style" : ""}/>
                     </div>
                     <div className="div-cell">
                         <p className="div-title">Email adresa *</p>
                         <input type="text" name="email" onClick={handleClick} onChange={handleChange} value={user.email}
-                               onBlur={validateString} className={fieldStyle.email ? "val-style" : ""}></input>
+                               onBlur={validateString} className={fieldStyle.email ? "val-style" : ""}/>
                     </div>
                     <div className="div-cell">
                         <p className="div-title">Broj telefona *</p>
                         <input type="text" name="phoneNumber" onClick={handleClick} onChange={handleChange}
                                value={user.phoneNumber} onBlur={validateString}
-                               className={fieldStyle.phoneNumber ? "val-style" : ""}></input>
+                               className={fieldStyle.phoneNumber ? "val-style" : ""}/>
                     </div>
                     <div className="div-cell">
                         <p className="div-title">Šifra *</p>
                         <input type="password" name="password" onClick={handleClick} onChange={handleChange}
                                value={user.password} onBlur={validateString}
-                               className={fieldStyle.password ? "val-style" : ""}></input>
+                               className={fieldStyle.password ? "val-style" : ""}/>
                     </div>
                     <div className="div-cell">
                         <p className="div-title">Grad *</p>
                         <input type="text" name="city" onClick={handleClick} onChange={handleChange} value={user.city}
-                               onBlur={validateString} className={fieldStyle.city ? "val-style" : ""}></input>
+                               onBlur={validateString} className={fieldStyle.city ? "val-style" : ""}/>
                     </div>
                     <div className="div-cell">
                         <p className="div-title">Država *</p>
                         <input type="text" name="country" onClick={handleClick} onChange={handleChange}
                                value={user.country} onBlur={validateString}
-                               className={fieldStyle.country ? "val-style" : ""}></input>
+                               className={fieldStyle.country ? "val-style" : ""}/>
                     </div>
                 </div>
                 <button id="register-button" value="Submit" className={disableButton ? "dis-class" : ""}>Registriraj
