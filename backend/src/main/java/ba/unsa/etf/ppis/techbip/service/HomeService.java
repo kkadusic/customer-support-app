@@ -38,10 +38,12 @@ public class HomeService {
 
     public String register(RegisterRequest registerRequest) {
         Optional<Employee> employee = employeeRepository.findByUsername(registerRequest.getUsername());
-        if(employee.isPresent()) return "User already exists with this username.";
+        if (employee.isPresent())
+            return "User already exists with this username.";
 
         Optional<Employee> employee1 = employeeRepository.findByEmail(registerRequest.getEmail());
-        if(employee1.isPresent()) return "User already exists with this email.";
+        if (employee1.isPresent())
+            return "User already exists with this email.";
 
         Employee e = new Employee(
                 registerRequest.getFirstName(),
@@ -53,12 +55,11 @@ public class HomeService {
                 registerRequest.getCity(),
                 passwordEncoder.encode(registerRequest.getPassword()));
 
-        if(registerRequest.getRoleName().equals(RoleName.ROLE_ADMIN)){
+        if (registerRequest.getRoleName().equals(RoleName.ROLE_ADMIN)) {
             List<Role> roles = Collections.singletonList(roleRepository.findByRolename(RoleName.ROLE_ADMIN));
             e.setRoles(new HashSet<>(roles));
 
-        }
-        else{
+        } else {
             List<Role> roles = Collections.singletonList(roleRepository.findByRolename(RoleName.ROLE_EMPLOYEE));
             e.setRoles(new HashSet<>(roles));
         }
@@ -79,7 +80,7 @@ public class HomeService {
         for (Role role : emp.getRoles()) roles.add(role.getRolename().name());
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        return new LoginResponse(jwtTokenProvider.generateToken(authentication, new EmployeeWrapper( emp.getId().toString(),emp.getFirstName(), emp.getLastName(),
+        return new LoginResponse(jwtTokenProvider.generateToken(authentication, new EmployeeWrapper(emp.getId().toString(), emp.getFirstName(), emp.getLastName(),
                 emp.getCountry(), emp.getCity(), emp.getEmail(), emp.getPhoneNumber(), emp.getUsername(), roles)));
     }
 

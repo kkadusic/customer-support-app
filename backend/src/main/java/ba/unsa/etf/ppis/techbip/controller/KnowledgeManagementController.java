@@ -29,94 +29,91 @@ public class KnowledgeManagementController {
 
     private final KnowledgeManagementService knowledgeManagementService;
 
-    @Secured({ "ROLE_ADMIN", "ROLE_EMPLOYEE" })
+    @Secured({"ROLE_ADMIN", "ROLE_EMPLOYEE"})
     @GetMapping("/employees")
     public ResponseEntity<List<Employee>> getEmployees
             (@RequestParam(required = false) String firstName,
              @RequestParam(required = false) String lastName,
              @RequestParam(required = false) String email,
-             @RequestParam(required = false) String username)
-    {
+             @RequestParam(required = false) String username) {
         EmployeeFilterRequest employeeFilterRequest = new EmployeeFilterRequest(
                 firstName, lastName, email, username
         );
         return ResponseEntity.ok(knowledgeManagementService.getEmployees(employeeFilterRequest));
     }
 
-    @Secured({ "ROLE_ADMIN", "ROLE_EMPLOYEE" })
+    @Secured({"ROLE_ADMIN", "ROLE_EMPLOYEE"})
     @GetMapping("/employees/emp")
-    public ResponseEntity<List<ReducedEmployeeResponse>> getOnlyEmployeesWithEmpRole()
-    {
+    public ResponseEntity<List<ReducedEmployeeResponse>> getOnlyEmployeesWithEmpRole() {
         return ResponseEntity.ok(knowledgeManagementService.getEmployeesWithEmpRole());
     }
 
-    @Secured({ "ROLE_ADMIN", "ROLE_EMPLOYEE" })
+    @Secured({"ROLE_ADMIN", "ROLE_EMPLOYEE"})
     @GetMapping("/employees/{id}")
-    public ResponseEntity<Employee> getEmployee(@PathVariable Long id){
+    public ResponseEntity<Employee> getEmployee(@PathVariable Long id) {
         Employee employee = knowledgeManagementService.getEmployee(id);
         return ResponseEntity.ok(employee);
     }
 
-
-
     @Secured("ROLE_ADMIN")
     @DeleteMapping("/employees/{id}")
-    public ResponseEntity<Response> deleteEmployee(@PathVariable Long id){
+    public ResponseEntity<Response> deleteEmployee(@PathVariable Long id) {
         Response response = knowledgeManagementService.deleteEmployee(id);
         return ResponseEntity.ok(response);
     }
 
-    @Secured({ "ROLE_ADMIN", "ROLE_EMPLOYEE" })
+    @Secured({"ROLE_ADMIN", "ROLE_EMPLOYEE"})
     @GetMapping("/employees/certificate/{id}")
-    public ResponseEntity<Certificate> getCertificate(@PathVariable Long id){
+    public ResponseEntity<Certificate> getCertificate(@PathVariable Long id) {
         Certificate certificate = knowledgeManagementService.getCertificate(id);
         return ResponseEntity.ok(certificate);
     }
 
     @Secured("ROLE_ADMIN")
     @PostMapping("/employees/certificate")
-    public ResponseEntity<Response> addCertificate(@Valid @RequestBody CertificateRequest certificateRequest){
+    public ResponseEntity<Response> addCertificate(@Valid @RequestBody CertificateRequest certificateRequest) {
         Response response = knowledgeManagementService.addCertificate(certificateRequest);
         return ResponseEntity.ok(response);
     }
 
     @Secured("ROLE_ADMIN")
     @PutMapping("/employees/certificate")
-    public ResponseEntity<Response> editCertificate(@Valid @RequestBody EditCerificateRequest editCerificateRequest){
+    public ResponseEntity<Response> editCertificate(@Valid @RequestBody EditCerificateRequest editCerificateRequest) {
         Response response = knowledgeManagementService.editCertificate(editCerificateRequest);
         return ResponseEntity.ok(response);
     }
 
     @Secured("ROLE_ADMIN")
     @DeleteMapping("/employees/certificate/{id}")
-    public ResponseEntity<Response> deleteCertificate(@PathVariable Long id){
+    public ResponseEntity<Response> deleteCertificate(@PathVariable Long id) {
         Response response = knowledgeManagementService.deleteCertificate(id);
         return ResponseEntity.ok(response);
     }
 
-    @Secured({ "ROLE_ADMIN", "ROLE_EMPLOYEE" })
+    @Secured({"ROLE_ADMIN", "ROLE_EMPLOYEE"})
     @GetMapping("/employees/education/{id}")
-    public ResponseEntity<Education> getEducation(@PathVariable Long id){
+    public ResponseEntity<Education> getEducation(@PathVariable Long id) {
         Education education = knowledgeManagementService.getEducation(id);
         return ResponseEntity.ok(education);
     }
+
     @Secured("ROLE_ADMIN")
     @PostMapping("/employees/education")
-    public ResponseEntity<Response> addEducation(@Valid @RequestBody EducationRequest educationRequest){
+    public ResponseEntity<Response> addEducation(@Valid @RequestBody EducationRequest educationRequest) {
         Response response = knowledgeManagementService.addEducation(educationRequest);
         return ResponseEntity.ok(response);
     }
 
     @Secured("ROLE_ADMIN")
     @PutMapping("/employees/education")
-    public ResponseEntity<Response> editEducation(@Valid @RequestBody EditEducationRequest editEducationRequest){
+    public ResponseEntity<Response> editEducation(@Valid @RequestBody EditEducationRequest editEducationRequest) {
         Response response = knowledgeManagementService.editEducation(editEducationRequest);
         return ResponseEntity.ok(response);
     }
 
     @Secured("ROLE_ADMIN")
     @DeleteMapping("/employees/education/{id}")
-    public ResponseEntity<Response> deleteEducation(@PathVariable Long id){
+    public ResponseEntity<Response> deleteEducation(@PathVariable Long id) {
         Response response = knowledgeManagementService.deleteEducation(id);
         return ResponseEntity.ok(response);
     }

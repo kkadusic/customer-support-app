@@ -26,36 +26,35 @@ public class IncidentManagementController {
 
     private final IncidentManagementService incidentManagementService;
 
-    @Secured({ "ROLE_ADMIN", "ROLE_EMPLOYEE" })
+    @Secured({"ROLE_ADMIN", "ROLE_EMPLOYEE"})
     @GetMapping("/incidents")
-    public ResponseEntity<List<Incident>> getIncidents()
-    {
+    public ResponseEntity<List<Incident>> getIncidents() {
         return ResponseEntity.ok(incidentManagementService.getIncidents());
     }
 
 
-    @Secured({ "ROLE_ADMIN", "ROLE_EMPLOYEE" })
+    @Secured({"ROLE_ADMIN", "ROLE_EMPLOYEE"})
     @GetMapping("/incidents/{id}")
     public ResponseEntity<Incident> getIncident(@PathVariable Long id) {
         Incident incident = incidentManagementService.getIncident(id);
         return ResponseEntity.ok(incident);
     }
 
-    @Secured({ "ROLE_ADMIN", "ROLE_EMPLOYEE" })
+    @Secured({"ROLE_ADMIN", "ROLE_EMPLOYEE"})
     @PostMapping("/incidents")
     public ResponseEntity<Response> addIncident(@Valid @RequestBody IncidentRequest incidentRequest) {
         Response response = incidentManagementService.addIncident(incidentRequest);
         return ResponseEntity.ok(response);
     }
 
-    @Secured({ "ROLE_ADMIN", "ROLE_EMPLOYEE" })
+    @Secured({"ROLE_ADMIN", "ROLE_EMPLOYEE"})
     @PutMapping("/incidents")
     public ResponseEntity<Response> editIncident(@Valid @RequestBody EditIncidentRequest editIncidentRequest) {
         Response response = incidentManagementService.editIncident(editIncidentRequest);
         return ResponseEntity.ok(response);
     }
 
-    @Secured({ "ROLE_ADMIN", "ROLE_EMPLOYEE" })
+    @Secured({"ROLE_ADMIN", "ROLE_EMPLOYEE"})
     @DeleteMapping("/incidents/{id}")
     public ResponseEntity<Response> deleteIncident(@PathVariable Long id) {
         Response response = incidentManagementService.deleteIncident(id);
@@ -68,30 +67,34 @@ public class IncidentManagementController {
         return ResponseEntity.ok(solutions);
     }
 
+    @Secured({"ROLE_ADMIN", "ROLE_EMPLOYEE"})
+    @GetMapping("/solutions/all")
+    public ResponseEntity<List<Solution>> getSolutions() {
+        return ResponseEntity.ok(incidentManagementService.getSolutions());
+    }
 
-    @Secured({ "ROLE_ADMIN", "ROLE_EMPLOYEE" })
+    @Secured({"ROLE_ADMIN", "ROLE_EMPLOYEE"})
     @GetMapping("/solutions/{id}")
     public ResponseEntity<Solution> getSolution(@PathVariable Long id) {
         Solution solution = incidentManagementService.getSolution(id);
         return ResponseEntity.ok(solution);
-
     }
 
-    @Secured({ "ROLE_ADMIN", "ROLE_EMPLOYEE" })
+    @Secured({"ROLE_ADMIN", "ROLE_EMPLOYEE"})
     @PostMapping("/solutions")
     public ResponseEntity<Response> addSolution(@Valid @RequestBody SolutionRequest solutionRequest) {
         Response response = incidentManagementService.addSolution(solutionRequest);
         return ResponseEntity.ok(response);
     }
 
-    @Secured({ "ROLE_ADMIN", "ROLE_EMPLOYEE" })
+    @Secured({"ROLE_ADMIN", "ROLE_EMPLOYEE"})
     @PutMapping("/solutions")
     public ResponseEntity<Response> editSolution(@Valid @RequestBody EditSolutionRequest editSolutionRequest) {
         Response response = incidentManagementService.editSolution(editSolutionRequest);
         return ResponseEntity.ok(response);
     }
 
-    @Secured({ "ROLE_ADMIN", "ROLE_EMPLOYEE" })
+    @Secured({"ROLE_ADMIN", "ROLE_EMPLOYEE"})
     @DeleteMapping("/solutions/{id}")
     public ResponseEntity<Response> deleteSolution(@PathVariable Long id) {
         Response response = incidentManagementService.deleteSolution(id);

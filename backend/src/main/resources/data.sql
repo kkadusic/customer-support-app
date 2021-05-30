@@ -1,7 +1,7 @@
 INSERT INTO public.employee (id, city, country, email, first_name, last_name, password, phone_number, username) VALUES (500, 'Berlin', 'Germany', 'john.doe@gmail.com', 'John', 'Doe', '$2a$10$1LHqXD9cfefKtlBwMWupOeFRdUvDtK03vBMcKhNhm1IhVjzYT6ZRe', '555-321-8888', 'jdoe');
 INSERT INTO public.employee (id, city, country, email, first_name, last_name, password, phone_number, username) VALUES (501, 'Paris', 'France', 'anna.smith@gmail.com', 'Anna', 'Smith', '$2a$10$1LHqXD9cfefKtlBwMWupOeFRdUvDtK03vBMcKhNhm1IhVjzYT6ZRe', '555-321-9999', 'asmith');
-INSERT INTO public.employee (id, city, country, email, first_name, last_name, password, phone_number, username) VALUES (502, 'Turka', 'Bulgaria', 'vasily@gmail.com', 'Vasily', 'Rogers', '$2a$10$1LHqXD9cfefKtlBwMWupOeFRdUvDtK03vBMcKhNhm1IhVjzYT6ZRe', '535-321-9000', 'vvasily');
-INSERT INTO public.employee (id, city, country, email, first_name, last_name, password, phone_number, username) VALUES (503, 'London', 'United Kingdom', 'jason.watt@gmail.com', 'Jason', 'Watt', '$2a$10$1LHqXD9cfefKtlBwMWupOeFRdUvDtK03vBMcKhNhm1IhVjzYT6ZRe', '123-555-3333', 'jwatt');
+INSERT INTO public.employee (id, city, country, email, first_name, last_name, password, phone_number, username) VALUES (502, 'Rome', 'Italy', 'jane.rogers@gmail.com', 'Jane', 'Rogers', '$2a$10$1LHqXD9cfefKtlBwMWupOeFRdUvDtK03vBMcKhNhm1IhVjzYT6ZRe', '535-321-9000', 'jrogers');
+INSERT INTO public.employee (id, city, country, email, first_name, last_name, password, phone_number, username) VALUES (503, 'London', 'United Kingdom', 'ben.watt@gmail.com', 'Ben', 'Watt', '$2a$10$1LHqXD9cfefKtlBwMWupOeFRdUvDtK03vBMcKhNhm1IhVjzYT6ZRe', '123-555-3333', 'bwatt');
 
 INSERT INTO public.role (id, rolename) VALUES (0, 'ROLE_ADMIN');
 INSERT INTO public.role (id, rolename) VALUES (1, 'ROLE_EMPLOYEE');
