@@ -5,6 +5,7 @@ import {useState} from 'react'
 import axios from 'axios'
 import {config} from '../../utilities/serverCall'
 import {useHistory} from 'react-router-dom'
+import {message} from "antd";
 
 const Profil = () => {
     const [userData, setUserData] = useState(getUser())
@@ -52,7 +53,7 @@ const Profil = () => {
             firstName: userData.firstName, lastName: userData.lastName, phoneNumber: userData.phoneNumber
         }
         axios.put("http://localhost:8081/auth/profil", putData, config()).then(() => {
-                alert("Successfully updated!");
+                message.success("Profile successfully updated");
                 updateUser(putData);
                 setErrorLabel("");
             }
