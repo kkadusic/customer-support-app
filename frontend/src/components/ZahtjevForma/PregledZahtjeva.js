@@ -63,7 +63,10 @@ const PregledZahtjeva = () => {
             </div>
             <button className="uredi-btn"
                     onClick={() => {
-                        history.push("/uredjivanjezahtjeva")
+                        history.push({
+                            pathname: '/uredjivanjezahtjeva',
+                            state: {incident: incident}
+                        });
                     }}
             >
                 Uredi zahtjev

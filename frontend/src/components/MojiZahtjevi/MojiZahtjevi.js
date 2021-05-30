@@ -12,7 +12,7 @@ const MojiZahtjevi = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                let id = Number(getUser().id)
+                const id = Number(getUser().id);
                 setIncidents(await getMyIncidents(id));
             } catch (error) {
                 message.warning(error.response.data.message, 3);

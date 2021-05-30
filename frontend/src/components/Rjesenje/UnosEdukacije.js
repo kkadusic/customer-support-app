@@ -34,7 +34,10 @@ const UnosEdukacije = () => {
                                 history.goBack();
                             }}
             />
-            <h1 className="unos-rjesenja">Ime agenta</h1><br/>
+            <h1 className="unos-rjesenja">
+                Ime agenta
+            </h1>
+            <br/>
             <div className="sadrzaj">
                 <Form
                     form={form}

@@ -2,11 +2,14 @@ import React from 'react';
 import './zahtjev-forma.css';
 import {DeleteOutlined} from '@ant-design/icons';
 import {useHistory} from 'react-router';
+import {useLocation} from "react-router-dom";
 
 
 const UredjivanjeZahtjeva = () => {
 
     const history = useHistory();
+    const location = useLocation();
+    const incident = location.state.incident;
 
     return (
         <div className="prozor">
@@ -59,7 +62,10 @@ const UredjivanjeZahtjeva = () => {
                     </select>
                     <button className="forma-btn"
                             onClick={() => {
-                                history.push("/unosrjesenja")
+                                history.push({
+                                    pathname: '/unosrjesenja',
+                                    state: {incidentId: incident.id}
+                                });
                             }}>
                         Dodaj novo rješenje
                     </button>

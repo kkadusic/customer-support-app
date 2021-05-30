@@ -71,3 +71,7 @@ export const getMyIncidents = async (employeeId) => {
 export const forwardIncident = async (incidentData) => {
     return (await axios.post(hostUrl + '/incident-management/forward-incident', {...incidentData}, config())).data;
 };
+
+export const addSolution = async (solution) => {
+    return (await axios.post(hostUrl + '/incident-management/solutions', {...solution}, config())).data;
+};
