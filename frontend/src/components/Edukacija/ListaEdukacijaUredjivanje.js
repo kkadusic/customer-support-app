@@ -41,10 +41,6 @@ const ListaEdukacijaUredjivanje = () => {
             >
                 Dodaj edukaciju
             </button>
-            <p>
-                Nemate račun?
-                <a href="/register">Registrirajte se </a>
-            </p>
         </div>
     );
 };
