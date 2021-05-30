@@ -10,8 +10,8 @@ import {getUser} from "../../utilities/localStorage";
 const ProsljedjivanjeZahtjeva = () => {
 
     const history = useHistory();
-    const [employees, setEmployees] = useState([]); 
-    const [option, setOption] = useState(-1); 
+    const [employees, setEmployees] = useState([]);
+    const [option, setOption] = useState(-1);
     const opt = useRef(null);
     const location = useLocation();
     const incident_id = location.state.id;
@@ -22,11 +22,11 @@ const ProsljedjivanjeZahtjeva = () => {
             console.log(incident_id);
             try {
                 let emp = await getEmployeesWithEmpRole();
-                var index = emp.findIndex(function(item, i){
+                var index = emp.findIndex(function (item, i) {
                     return item.id === currentUserId
-                  });
+                });
                 emp.splice(index, 1);
-                setEmployees(emp);  
+                setEmployees(emp);
             } catch (error) {
                 console.warn(error)
             }
@@ -42,20 +42,17 @@ const ProsljedjivanjeZahtjeva = () => {
             console.log(incidentObj);
             const fw = async () => {
                 try {
-                await forwardIncident(incidentObj);
-                alert("Operacija uspjesna!");
-                history.push("/zahtjevi");
-                }
-                catch (error) {
+                    await forwardIncident(incidentObj);
+                    alert("Operacija uspjesna!");
+                    history.push("/zahtjevi");
+                } catch (error) {
                     alert(error);
                     history.push("/zahtjevi");
                 }
-                
-            }     
-            fw(); 
-        }
 
-   
+            }
+            fw();
+        }
     }
 
     const onChange = (e) => {
@@ -67,8 +64,10 @@ const ProsljedjivanjeZahtjeva = () => {
             <div className="podprozor">
                 <h2>Prosljeđivanje zahtjeva</h2>
                 <form onSubmit={onSubmit}>
-                <Select className="agenti" onChange={onChange} options={employees.map(item => {return { value: item.id , label: item.firstName + " " + item.lastName}})} />
-                <button className="forma-btn" type="submit">Proslijedi</button>
+                    <Select className="agenti" onChange={onChange} options={employees.map(item => {
+                        return {value: item.id, label: item.firstName + " " + item.lastName}
+                    })}/>
+                    <button className="forma-btn" type="submit">Proslijedi</button>
                 </form>
                 <button className="spasi-btn"
                         onClick={() => {
