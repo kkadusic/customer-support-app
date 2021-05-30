@@ -19,7 +19,6 @@ const ProsljedjivanjeZahtjeva = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            console.log(incident_id);
             try {
                 let emp = await getEmployeesWithEmpRole();
                 var index = emp.findIndex(function (item, i) {
@@ -28,7 +27,7 @@ const ProsljedjivanjeZahtjeva = () => {
                 emp.splice(index, 1);
                 setEmployees(emp);
             } catch (error) {
-                console.warn(error)
+                // console.warn(error);
             }
         }
         fetchData();
@@ -39,7 +38,6 @@ const ProsljedjivanjeZahtjeva = () => {
         if (option === -1) alert("Odaberite opciju!");
         else {
             let incidentObj = {employeeId: option, incidentId: incident_id, currentEmployee: Number(currentUserId)};
-            console.log(incidentObj);
             const fw = async () => {
                 try {
                     await forwardIncident(incidentObj);
