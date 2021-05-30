@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {message, Modal} from 'antd';
-import './rjesenje.css';
 import {deleteCertificate} from "../../utilities/serverCall";
 import {useHistory} from "react-router";
+import './rjesenje.css';
 
 const Certifikat = (props) => {
     const history = useHistory();
@@ -14,7 +14,7 @@ const Certifikat = (props) => {
 
     const handleOk = async () => {
         try {
-            const id = await deleteCertificate(props.id);
+            await deleteCertificate(props.id);
             message.success("Certifikat obrisan", 3);
         } catch (error) {
             message.warning("Greska prilikom brisanja certifikata", 3);

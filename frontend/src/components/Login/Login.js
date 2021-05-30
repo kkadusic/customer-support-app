@@ -1,5 +1,5 @@
 import React from 'react'
-import {Form, Input, Button, Checkbox, message} from 'antd'
+import {Form, Input, Button, message} from 'antd'
 import './login.css'
 import axios from 'axios'
 import {setSession, prepareUserObject} from "../../utilities/localStorage"
@@ -13,6 +13,7 @@ const layout = {
         span: 16,
     },
 };
+
 const tailLayout = {
     wrapperCol: {
         offset: 8,
@@ -34,8 +35,7 @@ const Login = () => {
         ).catch(err => {
             message.error("Greska prilikom prijave", 3);
         })
-
-    }
+    };
 
     return (
         <div className="outer-box">

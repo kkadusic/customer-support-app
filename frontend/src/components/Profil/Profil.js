@@ -1,10 +1,10 @@
 import React from 'react'
 import './profil.css'
-import {getToken, getUser, updateUser} from '../../utilities/localStorage'
-import {useState, useEffect} from 'react'
+import {getUser, updateUser} from '../../utilities/localStorage'
+import {useState} from 'react'
 import axios from 'axios'
 import {config} from '../../utilities/serverCall'
-import {Redirect, useHistory} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 
 const Profil = () => {
     const [userData, setUserData] = useState(getUser())
@@ -15,12 +15,12 @@ const Profil = () => {
         firstName: false,
         lastName: false,
         phoneNumber: false
-    })
-    let history = useHistory()
+    });
+    const history = useHistory();
 
     const lgIn = () => history.push("/login");
 
-    const checkString = ({name, value}) => {
+    const checkString = ({value}) => {
         return (value.length < 3 || value.length > 50);
     }
 
@@ -30,17 +30,16 @@ const Profil = () => {
     }
 
     const handleChange = (e) => {
-        const {name, value} = e.target
-
-        setFieldStyle(fieldStyle => ({...fieldStyle, [name]: false}))
-        setUserData(user => ({...user, [name]: value}))
+        const {name, value} = e.target;
+        setFieldStyle(fieldStyle => ({...fieldStyle, [name]: false}));
+        setUserData(user => ({...user, [name]: value}));
     }
 
     const onSubmitForm = (e) => {
         e.preventDefault()
         let terminate = false
         Object.entries(fieldStyle).forEach((entry) => {
-            const [key, value] = entry
+            const [, value] = entry
             if (value) {
                 setErrorLabel("Input fields contain invalid data!")
                 terminate = true

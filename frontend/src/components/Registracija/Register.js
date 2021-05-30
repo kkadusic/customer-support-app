@@ -14,11 +14,6 @@ const Register = () => {
         phoneNumber: '',
         username: ''
     })
-    const mapper = {
-        city: 'Grad ', country: 'Država', email: 'Email', firstName: 'Ime',
-        lastName: 'Prezime', password: 'Šifra', phoneNumber: 'Broj telefona', username: 'Korisničko ime'
-    }
-
     const [fieldStyle, setFieldStyle] = useState({
         city: false,
         country: false,
@@ -44,7 +39,7 @@ const Register = () => {
         e.preventDefault()
         let terminate = false
         Object.entries(fieldStyle).forEach((entry) => {
-            const [key, value] = entry
+            const [, value] = entry
             if (value) {
                 setErrorLabel("Input fields contain invalid data!")
                 terminate = true
@@ -86,7 +81,7 @@ const Register = () => {
     }
 
     const handleClick = (e) => {
-        const {name, value} = e.target
+        const {name} = e.target
         setFieldStyle(fieldStyle => ({...fieldStyle, [name]: false}))
     }
 

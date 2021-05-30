@@ -15,7 +15,7 @@ const UnosCertifikata = () => {
     const onFinish = async (certificate) => {
         certificate.employeeId = agent.id;
         try {
-            const id = await addCertificate(certificate);
+            await addCertificate(certificate);
             message.success("Certifikat dodan", 3);
         } catch (error) {
             message.warning(error.response.data.message, 3);

@@ -15,7 +15,7 @@ const UnosEdukacije = () => {
     const onFinish = async (education) => {
         education.employeeId = agent.id;
         try {
-            const id = await addEducation(education);
+            await addEducation(education);
             message.success("Edukacija dodana", 3);
         } catch (error) {
             message.warning(error.response.data.message, 3);

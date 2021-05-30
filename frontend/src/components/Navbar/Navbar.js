@@ -6,7 +6,8 @@ import './navbar.css';
 
 const Navbar = () => {
 
-    let history = useHistory()
+    let history = useHistory();
+
     const odjavi = () => {
         removeSession();
         history.push("/pocetna");
