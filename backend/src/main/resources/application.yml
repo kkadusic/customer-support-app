@@ -2,9 +2,9 @@ spring:
   application:
     name: techbip
   datasource:
-    url: jdbc:postgresql://localhost:5432/techbip
-    username: 
-    password: 
+    url: ${JDBC_DATABASE_URL}
+    username: ${JDBC_DATABASE_USERNAME}
+    password: ${JDBC_DATABASE_PASSWORD}
     initialization-mode: always
   jpa:
     properties:
@@ -13,13 +13,12 @@ spring:
       jdbc:
         time_zone: UTC
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: ${SCHEMA_DB}
 app:
-  jwtSecret: KerimJWTSecretKey
+  jwtSecret: ${JWT_SECRET}
   jwtExpiration: 64000000
 server:
   error:
     include-message: always
     include-stacktrace: never
   port: 8081
-
