@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {message, Spin, Table} from "antd";
+import {Button, message, Spin, Table} from "antd";
 import {getSolutions} from "../../utilities/serverCall";
+import jsPDF from "jspdf";
+import 'jspdf-autotable';
+import {DownloadOutlined} from "@ant-design/icons";
 import './moji-zahtjevi.css';
 
 const Rjesenja = () => {
@@ -73,9 +76,39 @@ const Rjesenja = () => {
         }
     ];
 
+    const generateReport = () => {
+        let usersForReport = [];
+        for (let i = 0; i < solutions.length; i++) {
+            let userObj = Object.values({
+                id: solutions[i].id,
+                title: solutions[i].title,
+                description: solutions[i].description,
+                dateCreated: solutions[i].dateCreated.substr(8, 2) + "." +
+                    solutions[i].dateCreated.substr(5, 2) + "." +
+                    solutions[i].dateCreated.substr(0, 4) + ".",
+                timeCreated: solutions[i].dateCreated.substr(11, 5) + "h",
+                employeeId: solutions[i].employee.id,
+                employeeFirstName: solutions[i].employee.firstName,
+                employeeLastName: solutions[i].employee.lastName
+            });
+            usersForReport.push(userObj);
+        }
+        const doc = new jsPDF();
+        doc.autoTable({
+            head: [['ID', 'Naslov', 'Opis', 'Datum', 'Vrijeme', 'Agent ID', 'Ime', 'Prezime']],
+            body: usersForReport
+        })
+        doc.save('Solutions.pdf');
+    };
+
     return (
         <div className="prozor" style={{width: "80%"}}>
-            {loading ? <Spin size="large"/> : <Table dataSource={solutions} columns={columns}/>}
+            {loading ? <Spin size="large"/> :
+                <>
+                    <Table dataSource={solutions} columns={columns}/>
+                    <Button onClick={generateReport}>PDF izvještaj<DownloadOutlined/></Button>
+                </>
+            }
         </div>
     );
 }
