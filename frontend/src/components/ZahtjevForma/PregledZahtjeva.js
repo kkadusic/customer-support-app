@@ -37,7 +37,6 @@ const PregledZahtjeva = () => {
                         <option selected={true}>{incident.category.name}</option>
                     </select>
                     <label htmlFor="kategorija">Kategorija</label>
-
                     <textarea rows="8" id="opis" disabled={true} value={incident.description}/>
                     <label htmlFor="opis">Detaljan opis</label>
                 </div>

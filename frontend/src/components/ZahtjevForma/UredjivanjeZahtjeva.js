@@ -1,9 +1,8 @@
 import React from 'react';
-import './zahtjev-forma.css';
 import {DeleteOutlined} from '@ant-design/icons';
 import {useHistory} from 'react-router';
 import {useLocation} from "react-router-dom";
-
+import './zahtjev-forma.css';
 
 const UredjivanjeZahtjeva = () => {
 
@@ -22,22 +21,22 @@ const UredjivanjeZahtjeva = () => {
             <div className="forma-grid">
                 <div>
                     <h2>Podaci o klijentu</h2>
-                    <input type="text" id="ime" disabled={true} value="ime"/>
+                    <input type="text" id="ime" disabled={true} value={incident.client.firstName}/>
                     <label htmlFor="ime">Ime</label>
-                    <input type="text" id="prezime" disabled={true} value="prezime"/>
+                    <input type="text" id="prezime" disabled={true} value={incident.client.lastName}/>
                     <label htmlFor="prezime">Prezime</label>
-                    <input type="email" id="email" disabled={true} value="email@mail.com"/>
+                    <input type="email" id="email" disabled={true} value={incident.client.email}/>
                     <label htmlFor="email">E-mail</label>
-                    <input type="text" id="telefon" disabled={true} value="000111222"/>
+                    <input type="text" id="telefon" disabled={true} value={incident.client.phoneNumber}/>
                     <label htmlFor="telefon">Telefon</label>
-                    <input type="text" id="drzava" disabled={true} value="BiH"/>
+                    <input type="text" id="drzava" disabled={true} value={incident.client.country}/>
                     <label htmlFor="drzava">Drzava</label>
-                    <input type="text" id="grad" disabled={true} value="Sarajevo"/>
+                    <input type="text" id="grad" disabled={true} value={incident.client.city}/>
                     <label htmlFor="telefon">Grad</label>
                 </div>
                 <div>
                     <h2>Opis problema</h2>
-                    <input type="text" id="naslov"/>
+                    <input type="text" id="naslov" value={incident.title}/>
                     <label htmlFor="naslov">Naslov</label>
                     <select id="kategorija">
                         <option>Hardver</option>
@@ -45,7 +44,7 @@ const UredjivanjeZahtjeva = () => {
                         <option>Ostalo</option>
                     </select>
                     <label htmlFor="kategorija">Kategorija*</label>
-                    <textarea rows="8" id="opis"/>
+                    <textarea rows="8" id="opis" value={incident.description}/>
                     <label htmlFor="opis">Detaljan opis*</label>
                 </div>
                 <div>
