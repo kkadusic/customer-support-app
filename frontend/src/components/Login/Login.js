@@ -21,12 +21,14 @@ const tailLayout = {
     },
 };
 
+const hostUrl = process.env.REACT_APP_API_URL;
+
 const Login = () => {
 
     let history = useHistory()
 
     const onFinish = (value) => {
-        axios.post("http://localhost:8081/auth/login", value).then(
+        axios.post(hostUrl + "/auth/login", value).then(
             (respDat) => {
                 setSession(prepareUserObject(respDat.data.token));
                 history.push("/dashboard");

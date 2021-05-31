@@ -3,6 +3,8 @@ import './register.css'
 import validator from 'validator'
 import axios from 'axios'
 
+const hostUrl = process.env.REACT_APP_API_URL;
+
 const Register = () => {
     const [user, setUser] = useState({
         city: '',
@@ -49,7 +51,7 @@ const Register = () => {
         if (terminate) return;
         let postData = user
         postData["roleName"] = "ROLE_EMPLOYEE"
-        axios.post("http://localhost:8081/auth/registration", postData).then(
+        axios.post(hostUrl + "/auth/registration", postData).then(
             (respDat) => {
                 window.location.href = '/login'
             }

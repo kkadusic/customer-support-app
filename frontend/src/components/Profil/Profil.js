@@ -7,6 +7,8 @@ import {config} from '../../utilities/serverCall'
 import {useHistory} from 'react-router-dom'
 import {message} from "antd";
 
+const hostUrl = process.env.REACT_APP_API_URL;
+
 const Profil = () => {
     const [userData, setUserData] = useState(getUser())
     const [errorLabel, setErrorLabel] = useState("")
@@ -52,7 +54,7 @@ const Profil = () => {
             id: Number(userData.id), city: userData.city, country: userData.country,
             firstName: userData.firstName, lastName: userData.lastName, phoneNumber: userData.phoneNumber
         }
-        axios.put("http://localhost:8081/auth/profil", putData, config()).then(() => {
+        axios.put(hostUrl + "/auth/profil", putData, config()).then(() => {
                 message.success("Profile successfully updated");
                 updateUser(putData);
                 setErrorLabel("");
