@@ -16,7 +16,7 @@ spring:
       ddl-auto: ${SCHEMA_DB}
 app:
   jwtSecret: ${JWT_SECRET}
-  jwtExpiration: 64000000
+  jwtExpiration: ${JWT_EXPIRATION}
 server:
   error:
     include-message: always
