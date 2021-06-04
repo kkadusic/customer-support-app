@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Dashboard from './components/Dashboard/Dashboard';
 import DashboardZahtjevi from './components/Dashboard/DashboardZahtjevi';
 import MojiZahtjevi from './components/MojiZahtjevi/MojiZahtjevi';
@@ -24,8 +24,8 @@ import Login from './components/Login/Login';
 import Register from './components/Registracija/Register';
 import Pocetna from './components/Pocetna/Pocetna';
 import Profil from './components/Profil/Profil';
+import PageNotFound from "./components/PageNotFound";
 import './App.css';
-
 
 function App() {
     return (
@@ -34,6 +34,8 @@ function App() {
                 <header className="App-header">
                     <Navbar/>
                     <Switch>
+                        <Route exact path="/" component={Pocetna}/>
+                        <Route path="/pocetna" component={Pocetna}/>
                         <Route path="/dashboard" component={Dashboard}/>
                         <Route path="/zahtjevi" component={DashboardZahtjevi}/>
                         <Route path="/mojizahtjevi" component={MojiZahtjevi}/>
@@ -56,9 +58,8 @@ function App() {
                         <Route path="/urediagenta" component={AgentUredjivanje}/>
                         <Route path="/login" component={Login}/>
                         <Route path="/register" component={Register}/>
-                        <Route path="/pocetna" component={Pocetna}/>
                         <Route path="/profil" component={Profil}/>
-                        <Route path="/*" component={Pocetna}/>
+                        <Route component={PageNotFound}/>
                     </Switch>
                 </header>
             </div>
