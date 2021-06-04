@@ -25,6 +25,7 @@ import Register from './components/Registracija/Register';
 import Pocetna from './components/Pocetna/Pocetna';
 import Profil from './components/Profil/Profil';
 import PageNotFound from "./components/PageNotFound";
+import Statistics from "./components/Statistics";
 import './App.css';
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
                         <Route path="/login" component={Login}/>
                         <Route path="/register" component={Register}/>
                         <Route path="/profil" component={Profil}/>
+                        <Route path="/statistika" component={Statistics}/>
                         <Route component={PageNotFound}/>
                     </Switch>
                 </header>

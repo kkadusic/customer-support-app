@@ -1,9 +1,9 @@
-img {
+.page-not-found-image {
     height: 500px;
     width: 500px;
 }
 
-p {
+.page-not-found-text {
     margin-top: -35px;
     color: gray;
 }
