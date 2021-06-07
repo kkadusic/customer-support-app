@@ -88,7 +88,7 @@ const Login = () => {
                     </Form.Item>
                 </Form>
                 <p id="reg-reminder">
-                    Nemate račun? <a className="register-link" href="/register">Registrirajte se!</a>
+                    Nemate račun? <a className="register-link" href="/register">Registrujte se!</a>
                 </p>
             </div>
         </div>
