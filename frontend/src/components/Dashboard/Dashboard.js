@@ -1,7 +1,7 @@
 import React from 'react';
 import {useHistory} from 'react-router';
 import DashboardKartica from './DashboardKartica';
-import './dashboard.css'
+import './dashboard.css';
 
 const Dashboard = () => {
 

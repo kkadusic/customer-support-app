@@ -1,9 +1,9 @@
 import React from 'react';
-import {DeleteOutlined} from '@ant-design/icons';
-import {useHistory} from 'react-router';
-import {Button, Form, Input, message, Select} from "antd";
-import {addIncident} from "../../utilities/serverCall";
-import {Option} from "antd/es/mentions";
+import { DeleteOutlined } from '@ant-design/icons';
+import { useHistory } from 'react-router';
+import { Button, Form, Input, message, Select } from "antd";
+import { addIncident } from "../../utilities/serverCall";
+import { Option } from "antd/es/mentions";
 import './zahtjev-forma.css';
 
 const UnosZahtjeva = () => {
@@ -56,22 +56,28 @@ const UnosZahtjeva = () => {
                     <div>
                         <h2>Podaci o klijentu</h2>
                         <br/>
-                        <Form.Item name="firstName" label="Ime" rules={[{required: true}]}>
+                        <Form.Item name="firstName" label="Ime"
+                                   rules={[{required: true, message: "Potrebno je unijeti ime!"}]}>
                             <Input/>
                         </Form.Item>
-                        <Form.Item name="lastName" label="Prezime" rules={[{required: true}]}>
+                        <Form.Item name="lastName" label="Prezime"
+                                   rules={[{required: true, message: "Potrebno je unijeti prezime!"}]}>
                             <Input/>
                         </Form.Item>
-                        <Form.Item name="email" label="Email" rules={[{required: true}]}>
+                        <Form.Item name="email" label="Email"
+                                   rules={[{required: true, message: "Potrebno je unijeti email!"}]}>
                             <Input/>
                         </Form.Item>
-                        <Form.Item name="phoneNumber" label="Telefon" rules={[{required: true}]}>
+                        <Form.Item name="phoneNumber" label="Telefon"
+                                   rules={[{required: true, message: "Potrebno je unijeti telefon!"}]}>
                             <Input/>
                         </Form.Item>
-                        <Form.Item name="country" label="Drzava" rules={[{required: true}]}>
+                        <Form.Item name="country" label="Drzava"
+                                   rules={[{required: true, message: "Potrebno je unijeti drzavu!"}]}>
                             <Input/>
                         </Form.Item>
-                        <Form.Item name="city" label="Grad" rules={[{required: true}]}>
+                        <Form.Item name="city" label="Grad"
+                                   rules={[{required: true, message: "Potrebno je unijeti grad!"}]}>
                             <Input/>
                         </Form.Item>
                     </div>
@@ -79,17 +85,20 @@ const UnosZahtjeva = () => {
                     <div>
                         <h2>Opis problema</h2>
                         <br/>
-                        <Form.Item name="title" label="Naslov" rules={[{required: true}]}>
+                        <Form.Item name="title" label="Naslov"
+                                   rules={[{required: true, message: "Potrebno je unijeti naslov!"}]}>
                             <Input/>
                         </Form.Item>
-                        <Form.Item name="category" label="Kategorija" rules={[{required: true}]}>
+                        <Form.Item name="category" label="Kategorija"
+                                   rules={[{required: true, message: "Potrebno je odabrati kategoriju!"}]}>
                             <Select defaultValue="HARDVER">
                                 <Option value="HARDVER">Hardver</Option>
                                 <Option value="SOFTVER">Softver</Option>
                                 <Option value="OSTALO">Ostalo</Option>
                             </Select>
                         </Form.Item>
-                        <Form.Item name="description" label="Detaljan opis" rules={[{required: true}]}>
+                        <Form.Item name="description" label="Detaljan opis"
+                                   rules={[{required: true, message: "Potrebno je unijeti detaljan opis!"}]}>
                             <Input/>
                         </Form.Item>
                     </div>
