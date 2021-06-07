@@ -11,19 +11,26 @@ const AgentUredjivanje = () => {
 
     return (
         <div className="prozor">
-            <br/>
             <h2 className="top-naslov">Profil agenta</h2>
             <div className="forma-grid">
                 <div>
                     <h2>Podaci o agentu</h2>
-                    <input type="text" id="ime" value={agent.firstName}/>
-                    <label htmlFor="ime">Ime</label>
-                    <input type="text" id="prezime" value={agent.lastName}/>
-                    <label htmlFor="prezime">Prezime</label>
-                    <input type="text" id="zanimanje" value="Agent"/>
-                    <label htmlFor="telefon">Zanimanje</label>
-                    <input type="email" id="email" value={agent.email}/>
-                    <label htmlFor="email">E-mail</label>
+                    <div>
+                        <input type="text" id="ime" value={agent.firstName}/>
+                        <label htmlFor="ime">Ime</label>
+                    </div>
+                    <div>
+                        <input type="text" id="prezime" value={agent.lastName}/>
+                        <label htmlFor="prezime">Prezime</label>
+                    </div>
+                    <div>
+                        <input type="text" id="zanimanje" value="Agent"/>
+                        <label htmlFor="telefon">Zanimanje</label>
+                    </div>
+                    <div>
+                        <input type="email" id="email" value={agent.email}/>
+                        <label htmlFor="email">E-mail</label>
+                    </div>
                 </div>
                 <div className="dugmad">
                     <button className="dodaj"

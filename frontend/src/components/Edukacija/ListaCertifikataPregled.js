@@ -10,9 +10,9 @@ const ListaCertifikataPregled = (props) => {
     return (
         <div className="grid-certifikata">
             {!certificates.length ?
-                (<>
+                (<div>
                     Agent nema certifikata
-                </>) :
+                </div>) :
                 (<>
                     {certificates.map(certifikat => (
                         <Certifikat naslov={certifikat.name}

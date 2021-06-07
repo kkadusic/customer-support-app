@@ -1,11 +1,11 @@
-import React, {useState, useEffect, useRef} from 'react';
-import {useHistory} from 'react-router';
-import './zahtjev-forma.css';
-import {getEmployeesWithEmpRole, forwardIncident} from '../../utilities/serverCall';
+import React, { useState, useEffect, useRef } from 'react';
+import { useHistory } from 'react-router';
+import { getEmployeesWithEmpRole, forwardIncident } from '../../utilities/serverCall';
 import Select from 'react-select';
-import {useLocation} from "react-router-dom";
-import {getUser} from "../../utilities/localStorage";
-
+import { useLocation } from "react-router-dom";
+import { getUser } from "../../utilities/localStorage";
+import { message } from "antd";
+import './zahtjev-forma.css';
 
 const ProsljedjivanjeZahtjeva = () => {
 
@@ -21,7 +21,7 @@ const ProsljedjivanjeZahtjeva = () => {
         const fetchData = async () => {
             try {
                 let emp = await getEmployeesWithEmpRole();
-                var index = emp.findIndex(function (item, i) {
+                let index = emp.findIndex(function (item, i) {
                     return item.id === currentUserId
                 });
                 emp.splice(index, 1);
@@ -41,13 +41,12 @@ const ProsljedjivanjeZahtjeva = () => {
             const fw = async () => {
                 try {
                     await forwardIncident(incidentObj);
-                    alert("Operacija uspjesna!");
+                    message.success("Prosljeđivanje uspješno!", 3);
                     history.push("/zahtjevi");
                 } catch (error) {
                     alert(error);
                     history.push("/zahtjevi");
                 }
-
             }
             fw();
         }

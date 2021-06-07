@@ -1,10 +1,10 @@
 import React from 'react';
 import './certifikati-edukacije.css'
 import Edukacija from '../Rjesenje/Edukacija';
-import {useLocation} from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 
-const ListaEdukacijaPregled = (props) => {
+const ListaEdukacijaPregled = () => {
 
     const location = useLocation();
     const educations = location.state.educations;
@@ -12,9 +12,9 @@ const ListaEdukacijaPregled = (props) => {
     return (
         <div className="grid-certifikata">
             {!educations.length ?
-                (<>
+                (<div>
                     Agent nema edukacija
-                </>) :
+                </div>) :
                 (<>
                     {educations.map(edukacija => (
                         <Edukacija ustanova={edukacija.school}

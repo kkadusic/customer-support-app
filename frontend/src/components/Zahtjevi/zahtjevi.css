@@ -1,6 +1,6 @@
 .kartica {
     width: 230px;
-    height: 320px;
+    height: 330px;
     background-color: white;
     border: 1px solid grey;
     padding: 10px;
@@ -22,8 +22,8 @@
     font-size: 18px;
     text-align: left;
     color: rgb(236, 162, 149);
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
 }
 
 .opis {
@@ -56,8 +56,8 @@
     font-size: 12px;
     text-align: left;
     color: grey;
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
 }
 
 .zahtjev-btn {

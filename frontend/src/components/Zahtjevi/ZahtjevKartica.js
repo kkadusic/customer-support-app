@@ -13,7 +13,6 @@ const ZahtjevKartica = ({incident}) => {
     return (
         <div className="kartica">
             <p className="datum">{parseDate(incident.dateCreated)}</p>
-            {/*TODO separate date and time*/}
             <h4 className="naziv">{incident.title}</h4>
             <p className="opis">{incident.description}</p>
             <div className="klijent">
@@ -27,19 +26,26 @@ const ZahtjevKartica = ({incident}) => {
                     <h2 className="kontakt">{incident.client.phoneNumber}</h2>
                 </div>
             </div>
-            <button className="zahtjev-btn"
-                    onClick={() => history.push({pathname: "/prosljedjivanjezahtjeva", state: {id: incident.id}})}>
-                Prosljeđivanje zahtjeva
-            </button>
-            <button className="zahtjev-btn"
-                    onClick={() => {
-                        history.push({
-                            pathname: '/pregledzahtjeva',
-                            state: {incident: incident}
-                        });
-                    }}>
-                Pregled zahtjeva
-            </button>
+            <div style={{display: "flex",
+                justifyContent: "space-evenly", marginTop: "-20px"}}>
+                <button className="zahtjev-btn"
+                        onClick={() => history.push({
+                            pathname: "/prosljedjivanjezahtjeva",
+                            state: {id: incident.id}
+                        })}>
+                    Prosljeđivanje zahtjeva
+                </button>
+                <button className="zahtjev-btn"
+                        onClick={() => {
+                            history.push({
+                                pathname: '/pregledzahtjeva',
+                                state: {incident: incident}
+                            });
+                        }}>
+                    Pregled zahtjeva
+                </button>
+            </div>
+
         </div>
     );
 }
