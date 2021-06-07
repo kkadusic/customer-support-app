@@ -1,10 +1,10 @@
 import React from 'react';
 import './rjesenje.css'
-import {DeleteOutlined} from '@ant-design/icons';
-import {useHistory} from 'react-router';
-import {addCertificate} from "../../utilities/serverCall";
-import {Button, DatePicker, Form, Input, message} from "antd";
-import {useLocation} from "react-router-dom";
+import { DeleteOutlined } from '@ant-design/icons';
+import { useHistory } from 'react-router';
+import { addCertificate } from "../../utilities/serverCall";
+import { Button, DatePicker, Form, Input, message } from "antd";
+import { useLocation } from "react-router-dom";
 
 const UnosCertifikata = () => {
     const history = useHistory();
@@ -27,6 +27,16 @@ const UnosCertifikata = () => {
         form.resetFields();
     };
 
+    const layout = {
+        labelCol: {span: 12},
+        wrapperCol: {span: 26},
+    };
+
+    const tailLayout = {
+        wrapperCol: {offset: 10, span: 12},
+    };
+
+
     return (
         <div className="prozor">
             <DeleteOutlined className="kantica"
@@ -35,7 +45,7 @@ const UnosCertifikata = () => {
                             }}
             />
             <h1 className="unos-rjesenja">
-                Ime agenta
+                {agent.firstName} {agent.lastName}
             </h1>
             <br/>
             <div className="sadrzaj">
@@ -43,17 +53,22 @@ const UnosCertifikata = () => {
                     <Form
                         form={form}
                         onFinish={onFinish}
+                        {...layout}
                     >
-                        <Form.Item name="name" label="Naslov certifikata" rules={[{required: true}]}>
+                        <Form.Item name="name" label={<label style={{color: "lightgray"}}>Naslov certifikata</label>}
+                                   rules={[{required: true}]}>
                             <Input/>
                         </Form.Item>
-                        <Form.Item name="issuingOrganization" label="Odgovorna organizacija" rules={[{required: true}]}>
+                        <Form.Item name="issuingOrganization"
+                                   label={<label style={{color: "lightgray"}}>Odgovorna organizacija</label>}
+                                   rules={[{required: true}]}>
                             <Input/>
                         </Form.Item>
-                        <Form.Item name="issueDate" label="Datum izdavanja" rules={[{required: true}]}>
+                        <Form.Item name="issueDate" label={<label style={{color: "lightgray"}}>Datum izdavanja</label>}
+                                   rules={[{required: true}]}>
                             <DatePicker/>
                         </Form.Item>
-                        <Form.Item>
+                        <Form.Item {...tailLayout}>
                             <Button type="primary" htmlType="submit">
                                 Submit
                             </Button>
