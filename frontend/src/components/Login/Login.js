@@ -1,9 +1,9 @@
 import React from 'react'
-import {Form, Input, Button, message} from 'antd'
+import { Form, Input, Button, message } from 'antd'
 import './login.css'
 import axios from 'axios'
-import {setSession, prepareUserObject} from "../../utilities/localStorage"
-import {useHistory} from 'react-router-dom';
+import { setSession, prepareUserObject } from "../../utilities/localStorage"
+import { useHistory } from 'react-router-dom';
 
 const layout = {
     labelCol: {
@@ -87,7 +87,9 @@ const Login = () => {
                         </Button>
                     </Form.Item>
                 </Form>
-                <p id="reg-reminder">Nemate račun? <a href="/register">Registrirajte se!</a></p>
+                <p id="reg-reminder">
+                    Nemate račun? <a className="register-link" href="/register">Registrirajte se!</a>
+                </p>
             </div>
         </div>
     )

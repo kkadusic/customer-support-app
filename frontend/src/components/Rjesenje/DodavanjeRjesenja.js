@@ -1,10 +1,10 @@
 import React from 'react';
-import {DeleteOutlined} from '@ant-design/icons';
-import {useHistory} from 'react-router';
-import {useLocation} from "react-router-dom";
-import {getUser} from "../../utilities/localStorage";
-import {Button, Form, Input, message} from "antd";
-import {addSolution} from "../../utilities/serverCall";
+import { DeleteOutlined } from '@ant-design/icons';
+import { useHistory } from 'react-router';
+import { useLocation } from "react-router-dom";
+import { getUser } from "../../utilities/localStorage";
+import { Button, Form, Input, message } from "antd";
+import { addSolution } from "../../utilities/serverCall";
 import './rjesenje.css';
 
 const UnosRjesenja = () => {
@@ -31,6 +31,15 @@ const UnosRjesenja = () => {
         form.resetFields();
     };
 
+    const layout = {
+        labelCol: {span: 6},
+        wrapperCol: {span: 16},
+    };
+
+    const tailLayout = {
+        wrapperCol: {offset: 6, span: 16},
+    };
+
     return (
         <div className="prozor">
             <DeleteOutlined className="kantica"
@@ -39,7 +48,7 @@ const UnosRjesenja = () => {
                             }}
             />
             <h1 className="unos-rjesenja">
-                Id zahtjeva
+                Unos rješenja
             </h1>
             <br/>
             <div className="sadrzaj">
@@ -47,14 +56,17 @@ const UnosRjesenja = () => {
                     <Form
                         form={form}
                         onFinish={onFinish}
+                        {...layout}
                     >
-                        <Form.Item name="title" label="Naslov rjesenja" rules={[{required: true}]}>
+                        <Form.Item name="title" label={<label style={{color: "lightgray"}}>Naslov rješenja</label>}
+                                   rules={[{required: true}]}>
                             <Input/>
                         </Form.Item>
-                        <Form.Item name="description" label="Rjesenje" rules={[{required: true}]}>
+                        <Form.Item name="description" label={<label style={{color: "lightgray"}}>Rješenje</label>}
+                                   rules={[{required: true}]}>
                             <Input/>
                         </Form.Item>
-                        <Form.Item>
+                        <Form.Item {...tailLayout}>
                             <Button type="primary" htmlType="submit">
                                 Submit
                             </Button>
