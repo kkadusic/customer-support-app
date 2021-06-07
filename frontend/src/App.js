@@ -27,6 +27,7 @@ import Profil from './components/Profil/Profil';
 import PageNotFound from "./components/PageNotFound";
 import Statistics from "./components/Statistics";
 import './App.css';
+import PrivateRoute from "./utilities/privateRoute";
 
 function App() {
     return (
@@ -39,16 +40,16 @@ function App() {
                         <Route path="/pocetna" component={Pocetna}/>
                         <Route path="/dashboard" component={Dashboard}/>
                         <Route path="/zahtjevi" component={DashboardZahtjevi}/>
-                        <Route path="/mojizahtjevi" component={MojiZahtjevi}/>
-                        <Route path="/svizahtjevi" component={SviZahtjevi}/>
+                        <PrivateRoute path="/mojizahtjevi" component={MojiZahtjevi}/>
+                        <PrivateRoute path="/svizahtjevi" component={SviZahtjevi}/>
                         <Route path="/unoszahtjeva" component={UnosZahtjeva}/>
                         <Route path="/unosrjesenja" component={UnosRjesenja}/>
                         <Route path="/pregledzahtjeva" component={PregledZahtjeva}/>
                         <Route path="/pregledrjesenja" component={PregledRjesenja}/>
                         <Route path="/prosljedjivanjezahtjeva" component={ProsljedjivanjeZahtjeva}/>
                         <Route path="/uredjivanjezahtjeva" component={UredjivanjeZahtjeva}/>
-                        <Route path="/rjesenja" component={Rjesenja}/>
-                        <Route path="/agenti" component={Agenti}/>
+                        <PrivateRoute path="/rjesenja" component={Rjesenja}/>
+                        <PrivateRoute path="/agenti" component={Agenti}/>
                         <Route path="/uredicertifikate" component={ListaCertifikataUredjivanje}/>
                         <Route path="/pregledcertifikata" component={ListaCertifikataPregled}/>
                         <Route path="/unoscertifikata" component={UnosCertifikata}/>
@@ -60,7 +61,7 @@ function App() {
                         <Route path="/login" component={Login}/>
                         <Route path="/register" component={Register}/>
                         <Route path="/profil" component={Profil}/>
-                        <Route path="/statistika" component={Statistics}/>
+                        <PrivateRoute path="/statistika" component={Statistics}/>
                         <Route component={PageNotFound}/>
                     </Switch>
                 </header>
