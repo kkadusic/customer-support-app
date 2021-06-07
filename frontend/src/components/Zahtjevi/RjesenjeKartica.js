@@ -1,6 +1,7 @@
 import React from 'react';
 import {useHistory} from 'react-router';
 import './zahtjevi.css';
+import { parseDate } from "../../utilities/date";
 
 const RjesenjeKartica = (props) => {
 
@@ -8,7 +9,7 @@ const RjesenjeKartica = (props) => {
 
     return (
         <div className="kartica">
-            <p className="datum">{props.datum}</p>
+            <p className="datum">{parseDate(props.datum)}</p>
             <h4 className="naziv">{props.id}</h4>
             <p className="opis">{props.opis}</p>
             <div className="klijent">

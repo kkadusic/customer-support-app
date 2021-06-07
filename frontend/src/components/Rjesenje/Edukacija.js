@@ -3,6 +3,7 @@ import './rjesenje.css'
 import {useHistory} from "react-router";
 import {deleteEducation} from "../../utilities/serverCall";
 import {message, Modal} from "antd";
+import { parseDate } from "../../utilities/date";
 
 const Edukacija = (props) => {
     const history = useHistory();
@@ -40,10 +41,10 @@ const Edukacija = (props) => {
                 <input type="text" value={props.oblast} disabled/>
                 <br/>
                 <h2>Datum početka</h2>
-                <input type="text" value={props.datumPocetka} disabled/>
+                <input type="text" value={parseDate(props.datumPocetka)} disabled/>
                 <br/>
                 <h2>Datum završetka</h2>
-                <input type="text" value={props.datumKraja} disabled/>
+                <input type="text" value={parseDate(props.datumKraja)} disabled/>
                 {
                     props.uredjivanje &&
                     <button className="spasi" onClick={showModal}>

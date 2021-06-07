@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
-import {message, Modal} from 'antd';
-import {deleteCertificate} from "../../utilities/serverCall";
-import {useHistory} from "react-router";
+import React, { useState } from 'react';
+import { message, Modal } from 'antd';
+import { deleteCertificate } from "../../utilities/serverCall";
+import { useHistory } from "react-router";
 import './rjesenje.css';
+import { parseDate } from "../../utilities/date";
 
 const Certifikat = (props) => {
     const history = useHistory();
@@ -37,7 +38,7 @@ const Certifikat = (props) => {
                 <input type="text" value={props.org} disabled/>
                 <br/>
                 <h2>Datum izdavanja</h2>
-                <input type="text" value={props.datum} disabled/>
+                <input type="text" value={parseDate(props.datum)} disabled/>
                 {
                     props.uredjivanje &&
                     <button className="spasi" onClick={showModal}>

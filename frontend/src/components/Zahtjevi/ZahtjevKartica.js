@@ -1,17 +1,18 @@
 import React, { useEffect } from 'react';
-import {useHistory} from 'react-router';
+import { useHistory } from 'react-router';
 import './zahtjevi.css';
+import { parseDate } from "../../utilities/date";
 
 const ZahtjevKartica = ({incident}) => {
 
     const history = useHistory();
-   
+
     useEffect(() => {
 
-    }, []) 
+    }, [])
     return (
         <div className="kartica">
-            <p className="datum">{incident.dateCreated}</p>
+            <p className="datum">{parseDate(incident.dateCreated)}</p>
             {/*TODO separate date and time*/}
             <h4 className="naziv">{incident.title}</h4>
             <p className="opis">{incident.description}</p>
@@ -27,7 +28,7 @@ const ZahtjevKartica = ({incident}) => {
                 </div>
             </div>
             <button className="zahtjev-btn"
-                    onClick={() => history.push({pathname:"/prosljedjivanjezahtjeva", state: {id : incident.id}})}>
+                    onClick={() => history.push({pathname: "/prosljedjivanjezahtjeva", state: {id: incident.id}})}>
                 Prosljeđivanje zahtjeva
             </button>
             <button className="zahtjev-btn"
