@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { removeSession } from '../../utilities/localStorage';
+import { getUser, removeSession } from '../../utilities/localStorage';
 import { message } from "antd";
 import './navbar.css';
 
@@ -9,9 +9,11 @@ const Navbar = () => {
     let history = useHistory();
 
     const odjavi = () => {
-        removeSession();
-        history.push("/pocetna");
-        message.success("Uspjesno ste odjavljeni", 3);
+        if (getUser()) {
+            removeSession();
+            history.push("/pocetna");
+            message.success("Uspjesno ste odjavljeni", 3);
+        }
     };
 
     const linkPocetna = <><Link className="navbar-link" to="/">Početna</Link><span>|</span></>;
