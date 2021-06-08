@@ -49,7 +49,7 @@ const PregledZahtjeva = () => {
                     <br/>
                     <div>
                         <label htmlFor="kategorija">Kategorija</label>
-                        <select id="kategorija" >
+                        <select id="kategorija">
                             <option selected={true}>{incident.category.name}</option>
                         </select>
                     </div>
@@ -78,12 +78,11 @@ const PregledZahtjeva = () => {
             <button className="uredi-btn"
                     onClick={() => {
                         history.push({
-                            pathname: '/uredjivanjezahtjeva',
-                            state: {incident: incident}
+                            pathname: '/unosrjesenja',
+                            state: {incidentId: incident.id}
                         });
-                    }}
-            >
-                Uredi zahtjev
+                    }}>
+                Unos rješenja
             </button>
             <button className="spasi-btn"
                     onClick={() => {
