@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { message, Modal } from 'antd';
 import { deleteCertificate } from "../../utilities/serverCall";
 import { useHistory } from "react-router";
-import './rjesenje.css';
 import { parseDate } from "../../utilities/date";
+import './rjesenje.css';
 
 const Certifikat = (props) => {
     const history = useHistory();

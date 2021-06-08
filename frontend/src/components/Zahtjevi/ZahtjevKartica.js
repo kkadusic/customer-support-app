@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router';
 import './zahtjevi.css';
-import { parseDate } from "../../utilities/date";
+import { parseDateTime } from "../../utilities/date";
 
 const ZahtjevKartica = ({incident}) => {
 
@@ -12,7 +12,7 @@ const ZahtjevKartica = ({incident}) => {
     }, [])
     return (
         <div className="kartica">
-            <p className="datum">{parseDate(incident.dateCreated)}</p>
+            <p className="datum">{parseDateTime(incident.dateCreated)}</p>
             <h4 className="naziv">{incident.title}</h4>
             <p className="opis">{incident.description}</p>
             <div className="klijent">

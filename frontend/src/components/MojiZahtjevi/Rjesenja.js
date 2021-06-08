@@ -5,7 +5,7 @@ import jsPDF from "jspdf";
 import 'jspdf-autotable';
 import { DownloadOutlined } from "@ant-design/icons";
 import './moji-zahtjevi.css';
-import { parseDate } from "../../utilities/date";
+import { parseDateTime } from "../../utilities/date";
 
 const Rjesenja = () => {
 
@@ -18,7 +18,7 @@ const Rjesenja = () => {
                 setLoading(true);
                 const solutionsObj = await getSolutions();
                 for (let i = 0; i < solutionsObj.length; i++) {
-                    solutionsObj[i].dateCreated = parseDate(solutionsObj[i].dateCreated);
+                    solutionsObj[i].dateCreated = parseDateTime(solutionsObj[i].dateCreated);
                 }
                 setSolutions(solutionsObj);
                 setLoading(false);
@@ -99,7 +99,7 @@ const Rjesenja = () => {
             head: [['ID', 'Naslov', 'Opis', 'Datum', 'Agent ID', 'Ime', 'Prezime']],
             body: usersForReport
         })
-        doc.save('Solutions.pdf');
+        doc.save('Rjesenja.pdf');
     };
 
     return (

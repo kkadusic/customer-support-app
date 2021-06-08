@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './rjesenje.css'
-import {useHistory} from "react-router";
-import {deleteEducation} from "../../utilities/serverCall";
-import {message, Modal} from "antd";
+import { useHistory } from "react-router";
+import { deleteEducation } from "../../utilities/serverCall";
+import { message, Modal } from "antd";
 import { parseDate } from "../../utilities/date";
 
 const Edukacija = (props) => {
@@ -53,7 +53,8 @@ const Edukacija = (props) => {
                 }
             </div>
             <Modal title="Potvrda brisanja" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-                <p>Da li ste sigurni da želite obrisati edukaciju od ustanove {props.ustanova} iz oblasti {props.oblast} sa stepenom {props.stepen}?</p>
+                <p>Da li ste sigurni da želite obrisati edukaciju od ustanove {props.ustanova} iz
+                    oblasti {props.oblast} sa stepenom {props.stepen}?</p>
             </Modal>
         </div>
     );
