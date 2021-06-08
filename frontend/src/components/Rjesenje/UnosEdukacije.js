@@ -16,9 +16,9 @@ const UnosEdukacije = () => {
         education.employeeId = agent.id;
         try {
             await addEducation(education);
-            message.success("Edukacija dodana", 3);
+            message.success("Edukacija dodana", 2);
         } catch (error) {
-            message.warning(error.response.data.message, 3);
+            message.warning("Nemate privilegije za ovu akciju", 2);
         }
         history.push('/');
     };

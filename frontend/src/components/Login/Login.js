@@ -32,10 +32,10 @@ const Login = () => {
             (respDat) => {
                 setSession(prepareUserObject(respDat.data.token));
                 history.push("/dashboard");
-                message.success("Uspjesna prijava", 3);
+                message.success("Uspjesna prijava", 1);
             }
         ).catch(err => {
-            message.error("Greska prilikom prijave", 3);
+            message.error("Greska prilikom prijave", 1);
         })
     };
 

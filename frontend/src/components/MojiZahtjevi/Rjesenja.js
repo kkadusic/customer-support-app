@@ -1,10 +1,11 @@
-import React, {useEffect, useState} from 'react';
-import {Button, message, Spin, Table} from "antd";
-import {getSolutions} from "../../utilities/serverCall";
+import React, { useEffect, useState } from 'react';
+import { Button, message, Spin, Table } from "antd";
+import { getSolutions } from "../../utilities/serverCall";
 import jsPDF from "jspdf";
 import 'jspdf-autotable';
-import {DownloadOutlined} from "@ant-design/icons";
+import { DownloadOutlined } from "@ant-design/icons";
 import './moji-zahtjevi.css';
+import { parseDate } from "../../utilities/date";
 
 const Rjesenja = () => {
 
@@ -16,6 +17,9 @@ const Rjesenja = () => {
             try {
                 setLoading(true);
                 const solutionsObj = await getSolutions();
+                for (let i = 0; i < solutionsObj.length; i++) {
+                    solutionsObj[i].dateCreated = parseDate(solutionsObj[i].dateCreated);
+                }
                 setSolutions(solutionsObj);
                 setLoading(false);
             } catch (error) {
@@ -83,10 +87,7 @@ const Rjesenja = () => {
                 id: solutions[i].id,
                 title: solutions[i].title,
                 description: solutions[i].description,
-                dateCreated: solutions[i].dateCreated.substr(8, 2) + "." +
-                    solutions[i].dateCreated.substr(5, 2) + "." +
-                    solutions[i].dateCreated.substr(0, 4) + ".",
-                timeCreated: solutions[i].dateCreated.substr(11, 5) + "h",
+                dateCreated: solutions[i].dateCreated,
                 employeeId: solutions[i].employee.id,
                 employeeFirstName: solutions[i].employee.firstName,
                 employeeLastName: solutions[i].employee.lastName
@@ -95,7 +96,7 @@ const Rjesenja = () => {
         }
         const doc = new jsPDF();
         doc.autoTable({
-            head: [['ID', 'Naslov', 'Opis', 'Datum', 'Vrijeme', 'Agent ID', 'Ime', 'Prezime']],
+            head: [['ID', 'Naslov', 'Opis', 'Datum', 'Agent ID', 'Ime', 'Prezime']],
             body: usersForReport
         })
         doc.save('Solutions.pdf');

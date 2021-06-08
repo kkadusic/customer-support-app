@@ -22,7 +22,7 @@ const ProsljedjivanjeZahtjeva = () => {
             try {
                 let emp = await getEmployeesWithEmpRole();
                 let index = emp.findIndex(function (item, i) {
-                    return item.id === currentUserId
+                    return item.id === Number(currentUserId)
                 });
                 emp.splice(index, 1);
                 setEmployees(emp);

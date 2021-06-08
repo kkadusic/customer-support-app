@@ -1,16 +1,16 @@
 import React from 'react';
-import './pretraga.css';
 import {SearchOutlined} from '@ant-design/icons';
+import './pretraga.css';
 
-const Pretraga = (props) => {
+const Pretraga = () => {
 
     return (
         <div className="pretraga">
-            <div className="search">
-                <input type="text" placeholder="Pretraga"/>
-                <SearchOutlined className="ikona"/>
-            </div>
-            <div className="pocisti"/>
+            {/*<div className="search">*/}
+            {/*    <input type="text" placeholder="Pretraga"/>*/}
+            {/*    <SearchOutlined className="ikona"/>*/}
+            {/*</div>*/}
+            {/*<div className="pocisti"/>*/}
         </div>
     );
 }

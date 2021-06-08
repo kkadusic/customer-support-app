@@ -16,9 +16,9 @@ const UnosCertifikata = () => {
         certificate.employeeId = agent.id;
         try {
             await addCertificate(certificate);
-            message.success("Certifikat dodan", 3);
+            message.success("Certifikat dodan", 2);
         } catch (error) {
-            message.warning(error.response.data.message, 3);
+            message.warning("Nemate privilegije za ovu akciju", 2);
         }
         history.push('/');
     };

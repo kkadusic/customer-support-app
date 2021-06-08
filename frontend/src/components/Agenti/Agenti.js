@@ -16,7 +16,7 @@ const Agenti = () => {
                 setLoading(false);
             } catch (error) {
                 setLoading(false);
-                message.warning(error.response.data.message, 3);
+                message.warning(error.response.data.message, 2);
             }
         }
         fetchData();
