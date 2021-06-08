@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {getToken} from "./localStorage";
+import { getToken } from "./localStorage";
 
 const hostUrl = process.env.REACT_APP_API_URL;
 
@@ -61,6 +61,10 @@ export const getIncidents = async () => {
 
 export const addIncident = async (incident) => {
     return (await axios.post(hostUrl + '/incident-management/incidents', {...incident}, config())).data;
+};
+
+export const editIncident = async (incident) => {
+    return (await axios.put(hostUrl + '/incident-management/incidents', {...incident}, config())).data;
 };
 
 export const getMyIncidents = async (employeeId) => {

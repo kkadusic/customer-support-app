@@ -1,88 +1,127 @@
 import React from 'react';
-import {DeleteOutlined} from '@ant-design/icons';
-import {useHistory} from 'react-router';
-import {useLocation} from "react-router-dom";
+import { DeleteOutlined } from '@ant-design/icons';
+import { useHistory } from 'react-router';
+import { useLocation } from "react-router-dom";
 import './zahtjev-forma.css';
+import { Button, Form, Input, message, Select } from "antd";
+import { editIncident } from "../../utilities/serverCall";
+import { Option } from "antd/es/mentions";
+import TextArea from "antd/es/input/TextArea";
 
 const UredjivanjeZahtjeva = () => {
 
     const history = useHistory();
     const location = useLocation();
     const incident = location.state.incident;
+    const [form] = Form.useForm();
+
+    const onFinish = async (incidentForm) => {
+        const incidentObj = {
+            category: {
+                name: incidentForm.kategorija
+            },
+            description: incidentForm.opis,
+            id: 500,
+            status: incidentForm.status,
+            title: incidentForm.naslov
+        }
+        try {
+            await editIncident(incidentObj);
+            message.success("Incident ažuriran", 2);
+        } catch (error) {
+            message.warning(error.response.data.message, 2);
+        }
+        history.push('/');
+    };
+
+    const onReset = () => {
+        form.resetFields();
+    };
 
     return (
-        <div className="prozor">
+        <div style={{width: "80%"}} className="prozor">
             <DeleteOutlined className="kantica"
                             onClick={() => {
                                 history.goBack();
                             }}
             />
-            <br/>
-            <div className="forma-grid">
-                <div>
-                    <h2>Podaci o klijentu</h2>
-                    <div>
-                        <input type="text" id="ime" disabled={true} value={incident.client.firstName}/>
-                        <label htmlFor="ime">Ime</label>
-                    </div>
-                    <div>
-                        <input type="text" id="prezime" disabled={true} value={incident.client.lastName}/>
-                        <label htmlFor="prezime">Prezime</label>
-                    </div>
-                    <div>
-                        <input type="email" id="email" disabled={true} value={incident.client.email}/>
-                        <label htmlFor="email">E-mail</label>
-                    </div>
-                    <div>
-                        <input type="text" id="telefon" disabled={true} value={incident.client.phoneNumber}/>
-                        <label htmlFor="telefon">Telefon</label>
-                    </div>
-                    <div>
-                        <input type="text" id="drzava" disabled={true} value={incident.client.country}/>
-                        <label htmlFor="drzava">Drzava</label>
-                    </div>
-                    <div>
-                        <input type="text" id="grad" disabled={true} value={incident.client.city}/>
-                        <label htmlFor="telefon">Grad</label>
-                    </div>
+            <Form
+                form={form}
+                onFinish={onFinish}
+                size="small"
+                initialValues={{
+                    ime: incident.client.firstName,
+                    prezime: incident.client.lastName,
+                    email: incident.client.email,
+                    telefon: incident.client.phoneNumber,
+                    drzava: incident.client.country,
+                    grad: incident.client.city,
+                    naslov: incident.title,
+                    opis: incident.description,
+                    kategorija: incident.category.name,
+                    status: incident.status,
+                }}
+            >
+                <div style={{float: "left", width: "50%"}}>
+                    <h3 style={{color: "white"}}> Podaci o klijentu </h3>
+                    <Form.Item name="ime" label={<label style={{color: "white"}}>Ime</label>}>
+                        <Input placeHolder={incident.client.firstName}/>
+                    </Form.Item>
+                    <Form.Item name="prezime" label={<label style={{color: "white"}}>Prezime</label>}>
+                        <Input placeHolder={incident.client.lastName}/>
+                    </Form.Item>
+                    <Form.Item name="email" label={<label style={{color: "white"}}>Email</label>}>
+                        <Input placeHolder={incident.client.email}/>
+                    </Form.Item>
+                    <Form.Item name="telefon" label={<label style={{color: "white"}}>Telefon</label>}>
+                        <Input placeholder={incident.client.phoneNumber}/>
+                    </Form.Item>
+                    <Form.Item name="drzava" label={<label style={{color: "white"}}>Drzava</label>}>
+                        <Input placeholder={incident.client.country}/>
+                    </Form.Item>
+                    <Form.Item name="grad" label={<label style={{color: "white"}}>Grad</label>}>
+                        <Input placeholder={incident.client.city}/>
+                    </Form.Item>
                 </div>
                 <div>
-                    <h2>Opis problema</h2>
-                    <input type="text" id="naslov" value={incident.title}/>
-                    <label htmlFor="naslov">Naslov</label>
-                    <select id="kategorija">
-                        <option>Hardver</option>
-                        <option>Softver</option>
-                        <option>Ostalo</option>
-                    </select>
-                    <label htmlFor="kategorija">Kategorija*</label>
-                    <textarea rows="8" id="opis" value={incident.description}/>
-                    <label htmlFor="opis">Detaljan opis*</label>
+                    <h3 style={{color: "white"}}> Opis problema </h3>
+                    <Form.Item name="naslov" label={<label style={{color: "white"}}>Naslov</label>}>
+                        <Input placeholder={incident.title}/>
+                    </Form.Item>
+                    <Form.Item name="opis" label={<label style={{color: "white"}}>Detaljan opis</label>}>
+                        <TextArea placeholder={incident.description}/>
+                    </Form.Item>
+                    <Form.Item name="kategorija" label={<label style={{color: "white"}}>Kategorija</label>}>
+                        <Select
+                            placeholder={incident.category.name}
+                            allowClear
+                        >
+                            <Option value="HARDVER">Hardver</Option>
+                            <Option value="SOFTVER">Softver</Option>
+                            <Option value="OSTALO">Ostalo</Option>
+                        </Select>
+                    </Form.Item>
+                    <Form.Item name="status" label={<label style={{color: "white"}}>Status</label>}>
+                        <Select
+                            placeholder={incident.status}
+                            allowClear
+                        >
+                            <Option value="CANCELED">CANCELED</Option>
+                            <Option value="PENDING">PENDING</Option>
+                            <Option value="DELETED">DELETED</Option>
+                            <Option value="UNPROCESSED">UNPROCESSED</Option>
+                        </Select>
+                    </Form.Item>
                 </div>
-                <div>
-                    <h2>Status zahtjeva</h2>
-                    <input type="radio" id="neobradjen" name="obrada" value="otkazan"/>
-                    <label htmlFor="neobradjen" className="radio-label">Otkazan</label><br/>
-                    <input type="radio" id="obradjen" name="obrada" value="obradjen"/>
-                    <label htmlFor="obradjen" className="radio-label">Neobrađen</label><br/>
-                    <input type="radio" id="neobradjen" name="obrada" value="neobradjen"/>
-                    <label htmlFor="neobradjen" className="radio-label">Obrađen</label><br/>
-                    <select className="agenti">
-                        <option>Rjesenje1</option>
-                        <option>Rjesenje2</option>
-                    </select>
-                    <button className="forma-btn"
-                            onClick={() => {
-                                history.push({
-                                    pathname: '/unosrjesenja',
-                                    state: {incidentId: incident.id}
-                                });
-                            }}>
-                        Dodaj novo rješenje
-                    </button>
-                </div>
-            </div>
-            <button className="spasi-btn">Spasi</button>
+                <Form.Item>
+                    <Button type="primary" htmlType="submit">
+                        Submit
+                    </Button>
+                    <Button htmlType="button" onClick={onReset}>
+                        Reset
+                    </Button>
+                </Form.Item>
+            </Form>
         </div>
     );
 }
