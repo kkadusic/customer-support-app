@@ -42,7 +42,7 @@ const Rjesenja = () => {
             dataIndex: 'title',
             key: 'title',
             sorter: (a, b) => {
-                return a.naslov.localeCompare(b.naslov);
+                return a.title.localeCompare(b.title);
             }
         },
         {
