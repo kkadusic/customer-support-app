@@ -1,8 +1,10 @@
 # TechBip
 
-Frontend application: [`https://techbip.herokuapp.com`](https://techbip.herokuapp.com/) <br>
-Backend application: [`https://techbip-server.herokuapp.com`](https://techbip-server.herokuapp.com/) <br>
-Open [`https://techbip-server.herokuapp.com/swagger-ui/`](https://techbip-server.herokuapp.com/swagger-ui/) to launch Swagger UI in a browser.
+TechBip is a web application representing the implementation of the incident and knowledge management ITIL processes as part of a university project.
+
+- Frontend application: [`https://techbip.herokuapp.com`](https://techbip.herokuapp.com/) <br>
+- Backend application: [`https://techbip-server.herokuapp.com`](https://techbip-server.herokuapp.com/) <br>
+- Swagger UI: [`https://techbip-server.herokuapp.com/swagger-ui/`](https://techbip-server.herokuapp.com/swagger-ui/)
 
 ## Architecture
 
